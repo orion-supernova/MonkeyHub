@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct UploadPostView: View {
     
@@ -39,6 +40,21 @@ struct UploadPostView: View {
                 if postImage == nil {
                     VStack {
                         Spacer()
+                        
+//                        Button(action: { imagePickerPresented.toggle() }, label: {
+//                            LottieView(animationName: "uploadAnimation2JSON")
+//                                .scaledToFit()
+//                                .frame(width: 200, height: 200)
+//                                .clipped()
+//                                .padding()
+//                        })
+//                        .sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: {
+//                            ImagePicker(image: $selectedImage)
+//                        })
+                        
+                        
+//                                     - MARK: Old Button Before LottieView -
+                                                
                         Button(action: { imagePickerPresented.toggle() }, label: {
                             Image(systemName: "photo.on.rectangle.angled")
                                 .resizable()
@@ -52,7 +68,6 @@ struct UploadPostView: View {
                         .sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: {
                             ImagePicker(image: $selectedImage)
                         })
-                        
                         
                         Spacer()
                     }

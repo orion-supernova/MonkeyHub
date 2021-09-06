@@ -20,7 +20,7 @@ struct MainTabView: View {
             
             NavigationView {
                 TabView(selection: $selectedIndex) {
-                    LazyView(FeedView())
+                    FeedView()
                         .onTapGesture {
                             selectedIndex = 0
                         }
