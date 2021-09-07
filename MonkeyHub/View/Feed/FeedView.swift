@@ -22,6 +22,12 @@ struct FeedView: View {
                             .padding(.top)
                     })
                 }
+//                LazyVStack(spacing: 24) {
+//                    ForEach(0..<viewmodel.posts.indices.count) { index in
+//                        FeedCell(viewmodel: FeedCellViewModel(post: viewmodel.posts[index]), index: index)
+//                            .padding(.top)
+//                    }
+//                }
                 
             }
         

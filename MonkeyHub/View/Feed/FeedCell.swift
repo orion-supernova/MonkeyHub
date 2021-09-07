@@ -17,11 +17,21 @@ struct FeedCell: View {
     
     @State var scale: CGFloat = 1.0
     @State var likeAnimationHeart = false
+    var index: Int?
+    
+    var users: [User] {
+        userlistviewmodel.users
+    }
     
     var didLike: Bool { return viewmodel.post.didLike ?? false }
         
     init(viewmodel: FeedCellViewModel){
         self.viewmodel = viewmodel
+    }
+    
+    init(viewmodel: FeedCellViewModel, index: Int){
+        self.viewmodel = viewmodel
+        self.index = index
     }
     
     var body: some View {
