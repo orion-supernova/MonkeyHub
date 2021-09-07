@@ -26,7 +26,6 @@ struct ProfileView: View {
                 PostGridView(config: .profile(user.id ?? ""))
             }.padding(.top)
         }
-        
     }
 }
 
