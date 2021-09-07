@@ -38,6 +38,9 @@ struct CommentsView: View {
             
             
         }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
     }
     
     func uploadComment() {
