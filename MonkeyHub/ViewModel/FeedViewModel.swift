@@ -21,6 +21,9 @@ class FeedViewModel: ObservableObject {
     }
     
     
+    func onApperar() {
+        fetchPosts()
+    }
     func fetchPosts() {
         
         COLLECTION_POSTS.order(by: "timestamp", descending: true).addSnapshotListener { snapshot, error in
