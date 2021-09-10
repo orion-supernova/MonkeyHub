@@ -30,6 +30,9 @@ struct FeedView: View {
 //                }
                 
             }
+            .onAppear {
+                viewmodel.onApperar()
+            }
         
         
     }

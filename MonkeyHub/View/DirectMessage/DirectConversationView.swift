@@ -15,6 +15,7 @@ struct DirectConversationView: View {
     
     init(dmConversation: DmConversation) {
         self.viewmodel = DirectMessageViewModel(dmConversation: dmConversation)
+        
     }
     
     var body: some View {
@@ -34,6 +35,9 @@ struct DirectConversationView: View {
             KeyboardInputView(text: $messageText, action: uploadMessage)
             
             
+        }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
         }
     }
     
