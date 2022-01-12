@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct DirectConversationView: View {
-    
+
     @State var messageText = ""
     @ObservedObject var viewmodel: DirectMessageViewModel
-    
-    
+
     init(dmConversation: DmConversation) {
         self.viewmodel = DirectMessageViewModel(dmConversation: dmConversation)
-        
+
     }
-    
+
     var body: some View {
         VStack {
-            
+
             // comment cells
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 24) {
@@ -30,27 +29,25 @@ struct DirectConversationView: View {
                 }
             }
             .padding(.top)
-            
-            //message inputview
+
+            // message inputview
             KeyboardInputView(text: $messageText, action: uploadMessage)
-            
-            
+
         }
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
     }
-    
+
     func uploadMessage() {
         viewmodel.uploadDirectMessages(messageText: messageText)
         messageText = ""
     }
-    
-    
+
 }
 
-//struct DirectConversationView_Previews: PreviewProvider {
+// struct DirectConversationView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        DirectConversationView()
 //    }
-//}
+// }

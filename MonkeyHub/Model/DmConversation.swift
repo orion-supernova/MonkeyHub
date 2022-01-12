@@ -8,9 +8,8 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-
 struct DmConversation: Identifiable, Decodable {
-    
+
     @DocumentID var id: String?
     let ownerUID: String
     let ownerUsername: String
@@ -19,9 +18,7 @@ struct DmConversation: Identifiable, Decodable {
     var likes: Int
     let imageURL: String
     let timestamp: Timestamp
-    
-    
-    
+
     var didLike: Bool? = false
-    
+
 }

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct DmUserListView: View {
-    
+
     @ObservedObject var viewModel: SearchViewModel
     @Binding var searchTextBinding: String
-    
+
     var users: [User] {
         return searchTextBinding.isEmpty ? viewModel.users : viewModel.filteredUsers(query: searchTextBinding)
     }
-    
+
     var body: some View {
         ScrollView {
             LazyVStack {
@@ -33,9 +33,8 @@ struct DmUserListView: View {
     }
 }
 
-
-//struct DmUserListView_Previews: PreviewProvider {
+// struct DmUserListView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        DmUserListView()
 //    }
-//}
+// }

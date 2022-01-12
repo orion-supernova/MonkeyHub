@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct LoaderView: View {
-    
+
     @State var animate = false
-    
-    
+
     var body: some View {
-        
-        
-            
+
             VStack {
                 Circle()
                     .trim(from: 0.0, to: 1)
@@ -24,15 +21,13 @@ struct LoaderView: View {
                     .rotationEffect(.init(degrees: self.animate ? 360 : 0))
                     .animation(Animation.linear(duration: 0.7)
                                 .repeatForever(autoreverses: false))
-                
+
             }
             .onAppear {
                 self.animate.toggle()
             }
             .zIndex(5)
-            
-        
-        
+
     }
 }
 

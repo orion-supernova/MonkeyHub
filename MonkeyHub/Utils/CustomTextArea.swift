@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct CustomTextArea: View {
-    
+
     @Binding var text: String
     let placeholder: String
-    
-    
+
     init(text: Binding<String>, placeholder: String) {
         self._text = text
         self.placeholder = placeholder
-        
+
         UITextView.appearance().backgroundColor = .clear
     }
-    
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
             if text.isEmpty {
@@ -38,8 +36,8 @@ struct CustomTextArea: View {
     }
 }
 
-//struct CustomTextArea_Previews: PreviewProvider {
+// struct CustomTextArea_Previews: PreviewProvider {
 //    static var previews: some View {
 //        CustomTextArea(text: .constant("hm"), placeholder: "oke")
 //    }
-//}
+// }

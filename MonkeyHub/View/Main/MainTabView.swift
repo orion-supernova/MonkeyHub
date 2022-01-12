@@ -9,16 +9,14 @@ import SwiftUI
 import Firebase
 
 struct MainTabView: View {
-    
+
     let user: User
     @Binding var selectedIndex: Int
-    
+
     @State var searchText = ""
-    
+
     var body: some View {
-        
-        
-        
+
         NavigationView {
             TabView(selection: $selectedIndex) {
                 FeedView()
@@ -28,7 +26,7 @@ struct MainTabView: View {
                     .tabItem {
                         Image(systemName: "house")
                     }.tag(0)
-                
+
                 LazyView(SearchView())
                     .onTapGesture {
                         selectedIndex = 1
@@ -36,7 +34,7 @@ struct MainTabView: View {
                     .tabItem {
                         Image(systemName: "magnifyingglass.circle")
                     }.tag(1)
-                
+
                 LazyView(UploadPostView(tabIndex: $selectedIndex))
                     .onTapGesture {
                         selectedIndex = 2
@@ -44,7 +42,7 @@ struct MainTabView: View {
                     .tabItem {
                         Image(systemName: "plus.circle")
                     }.tag(2)
-                
+
                 LazyView(NotificationsView())
                     .onTapGesture {
                         selectedIndex = 3
@@ -52,7 +50,7 @@ struct MainTabView: View {
                     .tabItem {
                         Image(systemName: "heart.circle")
                     }.tag(3)
-                
+
                 LazyView(ProfileView(user: user))
                     .onTapGesture {
                         selectedIndex = 4
@@ -65,9 +63,9 @@ struct MainTabView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: logoutButton, trailing: dmButton)
         }
-        
+
     }
-    
+
     var logoutButton: some View {
         Button {
             AuthViewModel.shared.signOut()
@@ -76,7 +74,7 @@ struct MainTabView: View {
                 .font(.system(size: 15, weight: .regular))
                 .clipShape(Capsule())
         }
-        
+
     }
     var dmButton: some View {
         NavigationLink(
@@ -97,10 +95,9 @@ struct MainTabView: View {
                     .foregroundColor(.pink)
             })
     }
-    
-    
+
     var tabTitle: String {
-        
+
         switch selectedIndex {
         case 0:
             return "Feed"
@@ -115,17 +112,13 @@ struct MainTabView: View {
         default:
             return ""
         }
-        
+
     }
-    
-    
-    
-    
-    
+
 }
 
-//struct MainTabView_Previews: PreviewProvider {
+// struct MainTabView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        MainTabView(user: User)
 //    }
-//}
+// }

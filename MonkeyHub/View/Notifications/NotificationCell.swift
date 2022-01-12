@@ -9,17 +9,17 @@ import SwiftUI
 import Kingfisher
 
 struct NotificationCell: View {
-    
+
     @State private var showPostImage = false
-    
+
     @ObservedObject var viewmodel: NotificationCellViewModel
-    
+
     var isFollowed: Bool { return viewmodel.notification.isfollowed ?? false }
-    
+
     init(viewmodel: NotificationCellViewModel) {
         self.viewmodel = viewmodel
     }
-    
+
     var body: some View {
         HStack {
             if let user = viewmodel.notification.user {
@@ -29,7 +29,7 @@ struct NotificationCell: View {
                         .scaledToFill()
                         .frame(width: 36, height: 36)
                         .cornerRadius(24)
-                    
+
                     Text(viewmodel.notification.username)
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(.primary) +
@@ -41,11 +41,10 @@ struct NotificationCell: View {
                         .foregroundColor(.secondary)
                 }
             }
-            
+
             Spacer()
             Spacer()
             Spacer()
-            
 
                 if viewmodel.notification.type != .follow {
                     if let post = viewmodel.notification.post {
@@ -79,18 +78,16 @@ struct NotificationCell: View {
 //                            .clipShape(Capsule())
 //                            .font(.system(size: 14, weight: .semibold))
 //                    })
-                    
+
                 }
 
-            
-            
         }
         .padding(.horizontal)
     }
 }
 
-//struct NotificationCell_Previews: PreviewProvider {
+// struct NotificationCell_Previews: PreviewProvider {
 //    static var previews: some View {
 //        NotificationCell()
 //    }
-//}
+// }

@@ -8,10 +8,8 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-
-
 struct Message: Identifiable, Decodable {
-    
+
     @DocumentID var id: String?
     let username: String
     let sendToUID: String
@@ -19,8 +17,7 @@ struct Message: Identifiable, Decodable {
     let messageText: String
     let timestamp: Timestamp
     let uid: String
-    
-    
+
     var timestampString: String? {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
@@ -28,7 +25,5 @@ struct Message: Identifiable, Decodable {
         formatter.unitsStyle = .abbreviated
         return formatter.string(from: timestamp.dateValue(), to: Date()) ?? ""
     }
-    
-    
-    
+
 }
