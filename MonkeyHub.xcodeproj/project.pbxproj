@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54017C502666C967000D95A8 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54017C4F2666C967000D95A8 /* SignInWithAppleView.swift */; };
+		540BAD8C27745059005485BE /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 540BAD8B27745059005485BE /* FirebaseAppDistribution-Beta */; };
 		54212C2B268FB9C6009EB4AD /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C2A268FB9C6009EB4AD /* MessageView.swift */; };
 		54212C2D268FBA30009EB4AD /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C2C268FBA30009EB4AD /* MessageViewModel.swift */; };
 		54212C2F268FBAA2009EB4AD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C2E268FBAA2009EB4AD /* Message.swift */; };
@@ -178,6 +179,7 @@
 				542B63F8265DAE3B002FA9AE /* FirebaseAnalytics in Frameworks */,
 				542B63FC265DAE3B002FA9AE /* FirebaseFunctions in Frameworks */,
 				542B63FA265DAE3B002FA9AE /* FirebaseStorage in Frameworks */,
+				540BAD8C27745059005485BE /* FirebaseAppDistribution-Beta in Frameworks */,
 				542B63F4265DAE3B002FA9AE /* FirebaseFirestore in Frameworks */,
 				542B6400265DAE3B002FA9AE /* FirebaseAuth in Frameworks */,
 			);
@@ -186,6 +188,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		540BAD8A27745059005485BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		54212C29268FB986009EB4AD /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +228,7 @@
 			children = (
 				54DE3E00265BE31600B649F8 /* MonkeyHub */,
 				54DE3DFF265BE31600B649F8 /* Products */,
+				540BAD8A27745059005485BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -452,6 +462,7 @@
 				542B63FD265DAE3B002FA9AE /* FirebaseMessaging */,
 				542B63FF265DAE3B002FA9AE /* FirebaseAuth */,
 				5436E2A326E53B770071EDD9 /* Lottie */,
+				540BAD8B27745059005485BE /* FirebaseAppDistribution-Beta */,
 			);
 			productName = MonkeyHub;
 			productReference = 54DE3DFE265BE31600B649F8 /* MonkeyHub.app */;
@@ -805,6 +816,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		540BAD8B27745059005485BE /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 542B63F2265DAE3B002FA9AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
 		542B63DE265D292E002FA9AE /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 542B63DD265D292E002FA9AE /* XCRemoteSwiftPackageReference "Kingfisher" */;

@@ -28,9 +28,6 @@ struct LoginView: View {
                    LoaderView2()
 
                 }
-                
-                
-                
                 VStack {
                     Image("monkey")
                         .resizable()
