@@ -443,6 +443,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54DE3E0D265BE31600B649F8 /* Build configuration list for PBXNativeTarget "MonkeyHub" */;
 			buildPhases = (
+				54376687278F16960070DBBB /* ShellScript */,
 				54DE3DFA265BE31600B649F8 /* Sources */,
 				54DE3DFB265BE31600B649F8 /* Frameworks */,
 				54DE3DFC265BE31600B649F8 /* Resources */,
@@ -519,6 +520,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54376687278F16960070DBBB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		54DE3DFA265BE31600B649F8 /* Sources */ = {

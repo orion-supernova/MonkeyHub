@@ -80,7 +80,18 @@ struct MainTabView: View {
     }
     var dmButton: some View {
         NavigationLink(
-            destination: DirectMessageView(dmViewModel: DirectMessageViewModel(dmConversation: DmConversation.init(id: "hm", ownerUID: "hm", ownerUsername: "hm", ownerImageURL: "hm", caption: "hm", likes: 0, imageURL: "hm", timestamp: Timestamp.init(), didLike: false)), searchTextBinding: $searchText),
+            destination: DirectMessageView(dmViewModel:
+                                            DirectMessageViewModel(dmConversation:
+                                                                    DmConversation.init(id: "hm",
+                                                                                        ownerUID: "hm",
+                                                                                        ownerUsername: "hm",
+                                                                                        ownerImageURL: "hm",
+                                                                                        caption: "hm",
+                                                                                        likes: 0,
+                                                                                        imageURL: "hm",
+                                                                                        timestamp: Timestamp.init(),
+                                                                                        didLike: false)),
+                                                                                        searchTextBinding: $searchText),
             label: {
                 Image(systemName: "paperplane")
                     .foregroundColor(.pink)
