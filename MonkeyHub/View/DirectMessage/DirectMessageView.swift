@@ -23,7 +23,14 @@ struct DirectMessageView: View {
             LazyVStack {
                 ForEach(users) { user in
                     NavigationLink(
-                        destination: DirectConversationView(dmConversation: DmConversation.init(ownerUID: "hm", ownerUsername: "hm", ownerImageURL: "hm", caption: "hm", likes: 2, imageURL: "hm", timestamp: Timestamp.init())),
+                        destination: DirectConversationView(dmConversation: DmConversation.init(ownerUID: "hm",
+                                                                                                ownerUsername: "hm",
+                                                                                                ownerImageURL: "hm",
+                                                                                                caption: "hm",
+                                                                                                likes: 2,
+                                                                                                imageURL: "hm",
+                                                                                                timestamp:
+                                                                                                    Timestamp.init())),
                         label: {
                             UserCell(user: user)
                                 .padding(.leading)
