@@ -30,7 +30,8 @@ class DirectMessageViewModel: ObservableObject {
                     "dmCreatorUID": dmConversation.ownerUID,
                     "messageText": messageText] as [String: Any]
 
-        COLLECTION_DIRECTMESSAGES.document(dmConversationId).collection("dmConversation-messages").addDocument(data: data) { error in
+        COLLECTION_DIRECTMESSAGES.document(dmConversationId)
+            .collection("dmConversation-messages").addDocument(data: data) { error in
             if error != nil {
                 Helper.app.alertMessage(title: "Error", message: error!.localizedDescription)
                 print("Failed to upload comment. \(error!.localizedDescription)")
@@ -42,7 +43,9 @@ class DirectMessageViewModel: ObservableObject {
     func fetchDirectMessages() {
         guard let dmConversationId = dmConversation.id else { return }
 
-        let query = COLLECTION_DIRECTMESSAGES.document(dmConversationId).collection("dmConversation-mesages").order(by: "timestamp", descending: false)
+        let query = COLLECTION_DIRECTMESSAGES
+            .document(dmConversationId).collection("dmConversation-mesages").order(by: "timestamp",
+                                                                                   descending: false)
 
         query.addSnapshotListener { snapshot, _ in
 

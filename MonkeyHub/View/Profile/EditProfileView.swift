@@ -94,7 +94,8 @@ struct EditProfileView: View {
                         .padding(.leading)
 //                }
 
-            CustomTextArea(text: $bioText, placeholder: viewmodel.user.bio == nil ? "Add your bio..." : viewmodel.user.bio!)
+            CustomTextArea(text: $bioText,
+                           placeholder: viewmodel.user.bio == nil ? "Add your bio..." : viewmodel.user.bio!)
                     .frame(width: UIScreen.main.bounds.width, height: 200, alignment: .center)
                     .padding()
 
@@ -107,7 +108,10 @@ struct EditProfileView: View {
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView(viewmodel: ProfileViewModel(user: User(username: "", email: "", profileImageURL: "", fullname: "")))
+        EditProfileView(viewmodel: ProfileViewModel(user: User(username: "",
+                                                               email: "",
+                                                               profileImageURL: "",
+                                                               fullname: "")))
     }
 }
 
