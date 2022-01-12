@@ -16,9 +16,9 @@ struct User: Identifiable, Decodable {
     var stats: UserStats?
     var bio: String?
     var isfollowed: Bool? = false
-    
+
     var isCurrentUser: Bool { return AuthViewModel.shared.userSession?.uid == id }
-    
+
 }
 
 struct UserStats: Decodable {

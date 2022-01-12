@@ -9,17 +9,15 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
-    
+
     @EnvironmentObject var viewModel: AuthViewModel
     @State var selectedIndex = 0
 
-    
-    
     var body: some View {
-        
+
         Group {
 
-                //if not logged in show show login
+                // if not logged in show show login
 
                 if viewModel.userSession == nil {
 
@@ -27,8 +25,7 @@ struct ContentView: View {
 
                 } else {
 
-
-                    //else logged in already, check is email verified
+                    // else logged in already, check is email verified
 
                     if Auth.auth().currentUser?.isEmailVerified == false {
 
@@ -43,10 +40,7 @@ struct ContentView: View {
                 }
         }
         .accentColor(.pink)
-        
-        
-        
-        
+
     }
 }
 

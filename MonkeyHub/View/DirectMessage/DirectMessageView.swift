@@ -9,11 +9,11 @@ import SwiftUI
 import Firebase
 
 struct DirectMessageView: View {
-    
+
     @ObservedObject var viewModel = SearchViewModel()
     @ObservedObject var dmViewModel: DirectMessageViewModel
     @Binding var searchTextBinding: String
-    
+
     var users: [User] {
         return searchTextBinding.isEmpty ? viewModel.users : viewModel.filteredUsers(query: searchTextBinding)
     }
@@ -42,8 +42,8 @@ struct DirectMessageView: View {
     }
 }
 
-//struct DirectMessageView_Previews: PreviewProvider {
+// struct DirectMessageView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        DirectMessageView()
 //    }
-//}
+// }

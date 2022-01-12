@@ -9,9 +9,9 @@ import SwiftUI
 
 struct NotificationsView: View {
     @ObservedObject var viewmodel = NotificationsViewModel()
-    
+
     var body: some View {
-        
+
         if viewmodel.notifications.count == 0 {
             VStack {
                 Text("You haven't received any notifications yet")
@@ -19,21 +19,20 @@ struct NotificationsView: View {
             }
         } else {
             ScrollView {
-                LazyVStack (spacing:20) {
+                LazyVStack(spacing: 20) {
                     ForEach(viewmodel.notifications) { notification in
-                        LazyView(NotificationCell(viewmodel: NotificationCellViewModel(notification: notification))) 
+                        LazyView(NotificationCell(viewmodel: NotificationCellViewModel(notification: notification)))
                             .padding(.top)
                     }
                 }
             }
         }
-        
-        
+
     }
 }
 
-//struct NotificationsView_Previews: PreviewProvider {
+// struct NotificationsView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        NotificationsView()
 //    }
-//}
+// }

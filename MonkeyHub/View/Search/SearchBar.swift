@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchBar: View {
     @Binding var text: String
     @Binding var isEditing: Bool
-    
+
     var body: some View {
         HStack {
             TextField("Search...", text: $text)
@@ -34,7 +34,7 @@ struct SearchBar: View {
                     isEditing = false
                     text = ""
                     UIApplication.shared.endEditing()
-                    
+
                 }, label: {
                     Text("Cancel")
                         .accentColor(.pink)

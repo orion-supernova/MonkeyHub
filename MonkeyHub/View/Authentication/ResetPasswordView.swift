@@ -8,65 +8,57 @@
 import SwiftUI
 
 struct ResetPasswordView: View {
-    
+
     @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.presentationMode) var mode
 
     @Binding private var email: String
-    
-    
+
     init(email: Binding<String>) {
         self._email = email
     }
-    
-    
+
     var body: some View {
-        
-        
+
         NavigationView {
-            ZStack (alignment: .leading) {
+            ZStack(alignment: .leading) {
                 LinearGradient(gradient: Gradient(colors: [Color.pink, Color.blue]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
-                
-                
+
                 if viewModel.loadingIndicatorWithSwiftUI ?? false {
-                    
+
                     LoaderView2()
-                    
+
                 }
-                
-                
+
                 VStack {
                     Image("monkey")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 150)
                         .padding(.top, -50)
-                    
+
                     Text("Monkey Hub")
                         .foregroundColor(.white)
                         .font(.system(size: 30, weight: .semibold, design: Font.Design.rounded))
                         .padding(.bottom, 10)
-                    
-                    VStack (spacing: 15) {
-                        //email field
-                        
+
+                    VStack(spacing: 15) {
+                        // email field
+
                         CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                             .padding()
                             .background(Color(.init(white: 1, alpha: 0.15)))
                             .cornerRadius(10)
                             .foregroundColor(.white)
                             .padding(.horizontal, 32)
-                        
-                        
+
                     }
-                    
-                    
+
                     Button(action: {
-                        
-                        
+
                         viewModel.resetPassword(withEmail: email)
-                        
+
                     }, label: {
                         Text("Send Reset Password Link")
                             .font(.headline)
@@ -76,17 +68,17 @@ struct ResetPasswordView: View {
                             .clipShape(Capsule())
                             .padding()
                     })
-                    
+
                     Spacer()
                     Spacer()
                     Spacer()
-                    
-                    //Already an account? sign in
-                    
+
+                    // Already an account? sign in
+
                     HStack {
                         Text("Already an account?")
                             .font(.system(size: 14))
-                        
+
                         Button(action: { mode.wrappedValue.dismiss() }, label: {
                             Text("Sign In")
                                 .font(.system(size: 14, weight: .semibold))
@@ -94,24 +86,19 @@ struct ResetPasswordView: View {
                     }
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
-                    
-                    
-                    
-                    
-                    
+
                 }
             }
-            
+
         }
         .onReceive(viewModel.$didSendResetPasswordLink, perform: { _ in
             self.mode.wrappedValue.dismiss()
         })
         .navigationBarHidden(true)
-        
-    }
-    
-}
 
+    }
+
+}
 
 struct ResetPasswordView_Previews: PreviewProvider {
     static var previews: some View {

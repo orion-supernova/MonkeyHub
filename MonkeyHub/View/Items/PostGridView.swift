@@ -8,23 +8,19 @@
 import SwiftUI
 import Kingfisher
 
-
 struct PostGridView: View {
-    
 
-    
     private let items = [GridItem(), GridItem(), GridItem()]
     private let width = UIScreen.main.bounds.width / 3
     let config: PostGridConfiguration
-    
-    @ObservedObject var viewmodel: PostGridViewModel
 
+    @ObservedObject var viewmodel: PostGridViewModel
 
     init(config: PostGridConfiguration) {
         self.config = config
         self.viewmodel = PostGridViewModel(config: config)
     }
-    
+
     var body: some View {
         LazyVGrid(columns: items, spacing: 2, content: {
             ForEach(viewmodel.posts) { post in
@@ -42,8 +38,8 @@ struct PostGridView: View {
     }
 }
 
-//struct PostGridView_Previews: PreviewProvider {
+// struct PostGridView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PostGridView(viewmodel: PostGridViewModel())
 //    }
-//}
+// }

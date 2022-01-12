@@ -8,41 +8,33 @@
 import SwiftUI
 
 struct RegisterView: View {
-    
+
     @State private var email = ""
     @State private var username = ""
     @State private var fullname = ""
     @State private var password = ""
     @Environment(\.presentationMode) var mode
-    
+
     @State private var selectedImage: UIImage?
     @State  private var profileImage: Image?
     @State var imagePickerPresented = false
     @EnvironmentObject var viewModel: AuthViewModel
-    
 
-    
-    
-    
-    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.pink, Color.blue]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-                            
-            
+
             if viewModel.loadingIndicatorWithSwiftUI ?? false {
 
                LoaderView2()
 
             }
-            
-            
+
             VStack {
-                
-                
+
                 Spacer()
-                
+
                 if profileImage == nil {
                     Button(action: { imagePickerPresented.toggle() }, label: {
                         Image(systemName: "person.badge.plus")
@@ -55,9 +47,9 @@ struct RegisterView: View {
                     .sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: {
                         ImagePicker(image: $selectedImage)
                     })
-                    
+
                 } else if let image = profileImage {
-                    
+
                     Button(action: { imagePickerPresented.toggle() }, label: {
                         image
                             .resizable()
@@ -70,39 +62,37 @@ struct RegisterView: View {
                         ImagePicker(image: $selectedImage)
                     })
                 }
-                
-                
-                VStack (spacing: 15) {
-                    
-                    //email field
-                    
+
+                VStack(spacing: 15) {
+
+                    // email field
+
                     CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
-                    
-                    //fullname
-                    
+
+                    // fullname
+
                     CustomTextField(text: $fullname, placeholder: Text("Full Name"), imageName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
-                    
-                    //username
+
+                    // username
                     CustomTextField(text: $username, placeholder: Text("Username"), imageName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
-                    
-                    
-                    //password field
-                    
+
+                    // password field
+
                     CustomSecureField(text: $password, placeholder: Text("Password "))
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
@@ -110,15 +100,11 @@ struct RegisterView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
                 }
-                
-                
-                
-                
-                //sign Up
+
+                // sign Up
                 Button(action: {
-                    
-                    
-                    if email == ""  {
+
+                    if email == "" {
                         Helper.app.alertMessage(title: "Missing Info", message: "Please provide an email")
                     } else if fullname == "" {
                         Helper.app.alertMessage(title: "Missing Info", message: "Please provide a full name")
@@ -129,23 +115,17 @@ struct RegisterView: View {
                     } else if selectedImage == nil {
                         Helper.app.alertMessage(title: "Missing Info", message: "Please provide a profile picture")
                     } else {
-                        
+
                         viewModel.loadingIndicatorWithSwiftUI = true
-                        
-                        
-                        
+
                         viewModel.register(withEmail: email,
                                            password: password,
                                            image: selectedImage,
                                            fullname: fullname,
                                            username: username)
-                        
-                        
 
                     }
-                    
-                    
-                    
+
                 }, label: {
                     Text("Sign Up")
                         .font(.headline)
@@ -155,20 +135,17 @@ struct RegisterView: View {
                         .clipShape(Capsule())
                         .padding()
                 })
-                
-                
-                
-                
+
                 Spacer()
                 Spacer()
                 Spacer()
-                
-                //Already an account? sign in
-                
+
+                // Already an account? sign in
+
                 HStack {
                     Text("Already an account?")
                         .font(.system(size: 14))
-                    
+
                     Button(action: { mode.wrappedValue.dismiss() }, label: {
                         Text("Sign In")
                             .font(.system(size: 14, weight: .semibold))
@@ -176,22 +153,14 @@ struct RegisterView: View {
                 }
                 .foregroundColor(.white)
                 .padding(.bottom, 10)
-                
-                
-                
-                
-                
+
             }
             .zIndex(1)
         }
-        
-        
+
     }
-    
+
 }
-
-
-
 
 extension RegisterView {
     func loadImage () {
@@ -200,7 +169,6 @@ extension RegisterView {
         RegisterView().imagePickerPresented.toggle()
     }
 }
-
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
