@@ -19,9 +19,7 @@ struct UserService {
             guard  error == nil else { print(error!.localizedDescription); return }
 
             COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUID).setData([:], completion: completion)
-
         }
-
     }
 
     static func unfollow(uid: String, completion: ((Error?) -> Void)?) {
@@ -33,7 +31,6 @@ struct UserService {
 
             COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUID).delete(completion: completion)
         }
-
     }
 
     static func checkIfUserIsFollowed(uid: String, completion: @escaping(Bool) -> Void) {
@@ -45,7 +42,6 @@ struct UserService {
 
             guard let isFollowed = snapshot?.exists else { return }
             completion(isFollowed)
-
         }
     }
 }

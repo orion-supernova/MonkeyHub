@@ -62,7 +62,8 @@ class FeedCellViewModel: ObservableObject {
         guard let postID = post.id else { return }
 
         if uid == post.ownerUID {
-            Helper.app.slangAlertMessage(title: "Noldu?", message: "Tuhaf olduğunu fark edip unlike mı atmaya karar verdin :)")
+            Helper.app.slangAlertMessage(title: "Noldu?",
+                                         message: "Tuhaf olduğunu fark edip unlike mı atmaya karar verdin :)")
         }
 
         COLLECTION_POSTS.document(postID).collection("post-likes").document(uid).delete { _ in

@@ -44,7 +44,10 @@ struct FeedCell: View {
                         .clipped()
                         .cornerRadius(18)
 
-                    NavigationLink(destination: ProfileView(user: User(username: "Hm", email: "Hehe", profileImageURL: "Lol", fullname: "Yapcaz bi şeyler ama üşengeçlik işte"))) {
+                    NavigationLink(destination: ProfileView(user: User(username: "Hm",
+                                                                       email: "Hehe",
+                                                                       profileImageURL: "Lol",
+                                                                       fullname: "Yapcaz bi şeyler ama üşengeçlik işte"))) {
                         Text(viewmodel.post.ownerUsername)
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(.white)
@@ -55,7 +58,8 @@ struct FeedCell: View {
                     // delete button
                     if viewmodel.post.ownerUID == AuthViewModel.shared.userSession?.uid {
                         Button(action: {
-                            PostViewModel().removePost(documentID: viewmodel.post.id!, imageURL: viewmodel.post.imageURL ) { error in
+                            PostViewModel().removePost(documentID: viewmodel.post.id!,
+                                                       imageURL: viewmodel.post.imageURL ) { error in
                                 guard error == nil else { print("Delete post button error. \(error!.localizedDescription)"); return }
                                 print("post deletion successfull!")
 

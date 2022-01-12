@@ -44,7 +44,8 @@ class CommentViewModel: ObservableObject {
     func fetchComments() {
         guard let postId = post.id else { return }
 
-        let query = COLLECTION_POSTS.document(postId).collection("post-comments").order(by: "timestamp", descending: false)
+        let query = COLLECTION_POSTS.document(postId).collection("post-comments").order(by: "timestamp",
+                                                                                        descending: false)
 
         query.addSnapshotListener { snapshot, _ in
 
