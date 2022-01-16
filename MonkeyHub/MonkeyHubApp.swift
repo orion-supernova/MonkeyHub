@@ -34,6 +34,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNot
         messaging.token { token, _ in
             guard let token = token else { return }
             print("DEBUG: APNS Token: " + token)
+            Helper.app.APNS_Token = token
         }
     }
 
