@@ -13,7 +13,6 @@
 		54212C2D268FBA30009EB4AD /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C2C268FBA30009EB4AD /* MessageViewModel.swift */; };
 		54212C2F268FBAA2009EB4AD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C2E268FBAA2009EB4AD /* Message.swift */; };
 		54212C31268FBC5E009EB4AD /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C30268FBC5E009EB4AD /* MessageCell.swift */; };
-		542B63DF265D292E002FA9AE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 542B63DE265D292E002FA9AE /* Kingfisher */; };
 		542B63E1265D29E4002FA9AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 542B63E0265D29E4002FA9AE /* GoogleService-Info.plist */; };
 		542B63E3265D2CF7002FA9AE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B63E2265D2CF7002FA9AE /* AuthViewModel.swift */; };
 		542B63E9265D68F5002FA9AE /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B63E8265D68F5002FA9AE /* ImageUploader.swift */; };
@@ -88,6 +87,7 @@
 		54DE3E4A265C51EC00B649F8 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE3E49265C51EC00B649F8 /* ResetPasswordView.swift */; };
 		54DE3E4C265C5D4900B649F8 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE3E4B265C5D4900B649F8 /* CustomTextField.swift */; };
 		54DE3E4E265C5D5500B649F8 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE3E4D265C5D5500B649F8 /* CustomSecureField.swift */; };
+		54F246ED2794A0C000C3CD1D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F246EC2794A0C000C3CD1D /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,10 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				542B63F6265DAE3B002FA9AE /* FirebaseFirestoreSwift-Beta in Frameworks */,
-				542B63DF265D292E002FA9AE /* Kingfisher in Frameworks */,
 				5436E2A426E53B770071EDD9 /* Lottie in Frameworks */,
 				542B63FE265DAE3B002FA9AE /* FirebaseMessaging in Frameworks */,
 				542B63F8265DAE3B002FA9AE /* FirebaseAnalytics in Frameworks */,
+				54F246ED2794A0C000C3CD1D /* Kingfisher in Frameworks */,
 				542B63FC265DAE3B002FA9AE /* FirebaseFunctions in Frameworks */,
 				542B63FA265DAE3B002FA9AE /* FirebaseStorage in Frameworks */,
 				540BAD8C27745059005485BE /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -454,7 +454,6 @@
 			);
 			name = MonkeyHub;
 			packageProductDependencies = (
-				542B63DE265D292E002FA9AE /* Kingfisher */,
 				542B63F3265DAE3B002FA9AE /* FirebaseFirestore */,
 				542B63F5265DAE3B002FA9AE /* FirebaseFirestoreSwift-Beta */,
 				542B63F7265DAE3B002FA9AE /* FirebaseAnalytics */,
@@ -464,6 +463,7 @@
 				542B63FF265DAE3B002FA9AE /* FirebaseAuth */,
 				5436E2A326E53B770071EDD9 /* Lottie */,
 				540BAD8B27745059005485BE /* FirebaseAppDistribution-Beta */,
+				54F246EC2794A0C000C3CD1D /* Kingfisher */,
 			);
 			productName = MonkeyHub;
 			productReference = 54DE3DFE265BE31600B649F8 /* MonkeyHub.app */;
@@ -493,9 +493,9 @@
 			);
 			mainGroup = 54DE3DF5265BE31600B649F8;
 			packageReferences = (
-				542B63DD265D292E002FA9AE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				542B63F2265DAE3B002FA9AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5436E2A226E53B770071EDD9 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				54F246EB2794A0C000C3CD1D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 54DE3DFF265BE31600B649F8 /* Products */;
 			projectDirPath = "";
@@ -752,7 +752,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.orion.MonkeyHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -778,7 +778,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.orion.MonkeyHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -810,14 +810,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		542B63DD265D292E002FA9AE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.3.0;
-			};
-		};
 		542B63F2265DAE3B002FA9AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -834,6 +826,14 @@
 				minimumVersion = 3.2.3;
 			};
 		};
+		54F246EB2794A0C000C3CD1D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -841,11 +841,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 542B63F2265DAE3B002FA9AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAppDistribution-Beta";
-		};
-		542B63DE265D292E002FA9AE /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 542B63DD265D292E002FA9AE /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		542B63F3265DAE3B002FA9AE /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -886,6 +881,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5436E2A226E53B770071EDD9 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		54F246EC2794A0C000C3CD1D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F246EB2794A0C000C3CD1D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
