@@ -13,6 +13,7 @@ class Helper {
         return Helper()
 
     }()
+    var APNS_Token = ""
 
     func alertMessage(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)

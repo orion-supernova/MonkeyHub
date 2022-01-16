@@ -61,7 +61,7 @@ struct MainTabView: View {
             }
             .navigationTitle(tabTitle)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: logoutButton, trailing: dmButton)
+            .navigationBarItems(leading: logoutButton, trailing: selectedIndex == 4 ? AnyView(settingsButton) : AnyView(dmButton))
         }
 
     }
@@ -94,6 +94,14 @@ struct MainTabView: View {
                 Image(systemName: "paperplane")
                     .foregroundColor(.pink)
             })
+    }
+    var settingsButton: some View {
+        Button {
+            Helper.app.alertMessage(title: "Token copied to clipboard", message: Helper.app.APNS_Token)
+            UIPasteboard.general.string = Helper.app.APNS_Token
+        } label: {
+            Image(systemName: "gearshape")
+        }
     }
 
     var tabTitle: String {
