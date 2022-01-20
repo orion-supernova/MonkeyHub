@@ -13,25 +13,14 @@ struct FeedView: View {
 
     var body: some View {
 
-            ScrollView {
-                LazyVStack(spacing: 24) {
-                    ForEach(viewmodel.posts, content: { post in
-                        FeedCell(viewmodel: FeedCellViewModel(post: post))
-                            .padding(.top)
-                    })
-                }
-//                LazyVStack(spacing: 24) {
-//                    ForEach(0..<viewmodel.posts.indices.count) { index in
-//                        FeedCell(viewmodel: FeedCellViewModel(post: viewmodel.posts[index]), index: index)
-//                            .padding(.top)
-//                    }
-//                }
-
+        ScrollView {
+            LazyVStack(spacing: 24) {
+                ForEach(viewmodel.posts, content: { post in
+                    FeedCell(viewmodel: FeedCellViewModel(post: post))
+                        .padding(.top)
+                })
             }
-            .onAppear {
-                viewmodel.onApperar()
-            }
-
+        }
     }
 }
 

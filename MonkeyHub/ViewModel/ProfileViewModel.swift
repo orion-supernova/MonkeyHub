@@ -22,28 +22,22 @@ class ProfileViewModel: ObservableObject {
         guard let uid = user.id else { return }
 
         UserService.follow(uid: uid) { _ in
-
             NotificationsViewModel.uploadNotification(toUID: uid, type: .follow)
             self.user.isfollowed = true
             print("Successfully followed \(self.user.username)")
-
         }
-
     }
 
     func unfollow() {
-
         guard let uid = user.id else { return }
 
         UserService.unfollow(uid: uid) { _ in
             self.user.isfollowed = false
         }
-
         print("Successfully unfollowed \(self.user.username)")
     }
 
     func checkIfUserIsFollowed() {
-
         guard !user.isCurrentUser else { return }
         guard let uid = user.id else { return }
 
@@ -57,28 +51,20 @@ class ProfileViewModel: ObservableObject {
 
         COLLECTION_FOLLOWING.document(uid).collection("user-following").addSnapshotListener { snapshot, error in
             guard let followingCount = snapshot?.documents.count else { print(error!.localizedDescription); return }
-
             COLLECTION_FOLLOWERS.document(uid).collection("user-followers").addSnapshotListener { snapshot, error in
                 guard let followersCount = snapshot?.documents.count else {print(error!.localizedDescription); return }
-
                 COLLECTION_POSTS.whereField("ownerUID", isEqualTo: uid).addSnapshotListener { snapshot, error in
                     guard let postsCount = snapshot?.documents.count else {print(error!.localizedDescription); return }
-
                     self.user.stats = UserStats(following: followingCount, followers: followersCount, posts: postsCount)
-
                 }
             }
         }
-
     }
 
     func fetchBio(completion: @escaping(String) -> Void) {
         guard let uid = user.id else { return }
-
         COLLECTION_USERS.document(uid).addSnapshotListener {snaphot, _ in
-
             guard let userDataFromFirestore = try? snaphot?.data(as: User.self) else { return }
-
             completion(userDataFromFirestore.bio ?? "")
 
         }

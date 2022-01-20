@@ -11,8 +11,8 @@ class Helper {
 
     static var app: Helper = {
         return Helper()
-
     }()
+
     var APNS_Token = ""
 
     func alertMessage(title: String, message: String) {
