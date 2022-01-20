@@ -26,7 +26,6 @@ class PostViewModel: ObservableObject {
                         "ownerUsername": user.username] as [String: Any]
 
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
-
         }
     }
 
@@ -36,9 +35,6 @@ class PostViewModel: ObservableObject {
             guard error == nil else { print("remove post function error. \(error!.localizedDescription)"); return}
 
             Storage.storage().reference(forURL: imageURL).delete(completion: completion)
-
         }
-
-        }
-
     }
+}

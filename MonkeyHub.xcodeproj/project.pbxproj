@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		54017C502666C967000D95A8 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54017C4F2666C967000D95A8 /* SignInWithAppleView.swift */; };
 		540BAD8C27745059005485BE /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 540BAD8B27745059005485BE /* FirebaseAppDistribution-Beta */; };
-		54212C2B268FB9C6009EB4AD /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C2A268FB9C6009EB4AD /* MessageView.swift */; };
 		54212C2D268FBA30009EB4AD /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C2C268FBA30009EB4AD /* MessageViewModel.swift */; };
 		54212C2F268FBAA2009EB4AD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C2E268FBAA2009EB4AD /* Message.swift */; };
-		54212C31268FBC5E009EB4AD /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54212C30268FBC5E009EB4AD /* MessageCell.swift */; };
 		542B63E1265D29E4002FA9AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 542B63E0265D29E4002FA9AE /* GoogleService-Info.plist */; };
 		542B63E3265D2CF7002FA9AE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B63E2265D2CF7002FA9AE /* AuthViewModel.swift */; };
 		542B63E9265D68F5002FA9AE /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B63E8265D68F5002FA9AE /* ImageUploader.swift */; };
@@ -27,12 +25,10 @@
 		542B63FE265DAE3B002FA9AE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 542B63FD265DAE3B002FA9AE /* FirebaseMessaging */; };
 		542B6400265DAE3B002FA9AE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 542B63FF265DAE3B002FA9AE /* FirebaseAuth */; };
 		542B6402265DB253002FA9AE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B6401265DB253002FA9AE /* SearchViewModel.swift */; };
-		5434E22826E7E46B005D12C8 /* DirectMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E22726E7E46A005D12C8 /* DirectMessageView.swift */; };
-		5434E22A26E7E867005D12C8 /* DmUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E22926E7E867005D12C8 /* DmUserListView.swift */; };
-		5434E22C26E7E901005D12C8 /* DirectConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E22B26E7E901005D12C8 /* DirectConversationView.swift */; };
-		5434E22E26E7EA64005D12C8 /* DirectMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E22D26E7EA64005D12C8 /* DirectMessageViewModel.swift */; };
-		5434E23026E7EACC005D12C8 /* DmMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E22F26E7EACC005D12C8 /* DmMessage.swift */; };
-		5434E23226E7ECB4005D12C8 /* DmConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E23126E7ECB4005D12C8 /* DmConversation.swift */; };
+		5434E22826E7E46B005D12C8 /* DMListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E22726E7E46A005D12C8 /* DMListView.swift */; };
+		5434E22C26E7E901005D12C8 /* ChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E22B26E7E901005D12C8 /* ChatRoomView.swift */; };
+		5434E22E26E7EA64005D12C8 /* DMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E22D26E7EA64005D12C8 /* DMViewModel.swift */; };
+		5434E23226E7ECB4005D12C8 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E23126E7ECB4005D12C8 /* ChatRoom.swift */; };
 		5434E23426E7F2BB005D12C8 /* DirectConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E23326E7F2BB005D12C8 /* DirectConversationCell.swift */; };
 		5436E2A426E53B770071EDD9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5436E2A326E53B770071EDD9 /* Lottie */; };
 		5436E2A826E53BD00071EDD9 /* uploadAnimationJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 5436E2A726E53BD00071EDD9 /* uploadAnimationJSON.json */; };
@@ -88,14 +84,14 @@
 		54DE3E4C265C5D4900B649F8 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE3E4B265C5D4900B649F8 /* CustomTextField.swift */; };
 		54DE3E4E265C5D5500B649F8 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE3E4D265C5D5500B649F8 /* CustomSecureField.swift */; };
 		54F246ED2794A0C000C3CD1D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F246EC2794A0C000C3CD1D /* Kingfisher */; };
+		54F5C34D279A05AA006ADEC2 /* TitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5C34C279A05AA006ADEC2 /* TitleRow.swift */; };
+		54F5C34F279A05CE006ADEC2 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5C34E279A05CE006ADEC2 /* MessageBubble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		54017C4F2666C967000D95A8 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
-		54212C2A268FB9C6009EB4AD /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		54212C2C268FBA30009EB4AD /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		54212C2E268FBAA2009EB4AD /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		54212C30268FBC5E009EB4AD /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		542B63E0265D29E4002FA9AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		542B63E2265D2CF7002FA9AE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		542B63E8265D68F5002FA9AE /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
@@ -103,12 +99,10 @@
 		542B63EE265DA9B1002FA9AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		542B63F0265DAB49002FA9AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		542B6401265DB253002FA9AE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		5434E22726E7E46A005D12C8 /* DirectMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessageView.swift; sourceTree = "<group>"; };
-		5434E22926E7E867005D12C8 /* DmUserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmUserListView.swift; sourceTree = "<group>"; };
-		5434E22B26E7E901005D12C8 /* DirectConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectConversationView.swift; sourceTree = "<group>"; };
-		5434E22D26E7EA64005D12C8 /* DirectMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessageViewModel.swift; sourceTree = "<group>"; };
-		5434E22F26E7EACC005D12C8 /* DmMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmMessage.swift; sourceTree = "<group>"; };
-		5434E23126E7ECB4005D12C8 /* DmConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmConversation.swift; sourceTree = "<group>"; };
+		5434E22726E7E46A005D12C8 /* DMListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMListView.swift; sourceTree = "<group>"; };
+		5434E22B26E7E901005D12C8 /* ChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomView.swift; sourceTree = "<group>"; };
+		5434E22D26E7EA64005D12C8 /* DMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMViewModel.swift; sourceTree = "<group>"; };
+		5434E23126E7ECB4005D12C8 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		5434E23326E7F2BB005D12C8 /* DirectConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectConversationCell.swift; sourceTree = "<group>"; };
 		5436E2A726E53BD00071EDD9 /* uploadAnimationJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = uploadAnimationJSON.json; sourceTree = "<group>"; };
 		5436E2A926E53F940071EDD9 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -165,6 +159,8 @@
 		54DE3E49265C51EC00B649F8 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		54DE3E4B265C5D4900B649F8 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		54DE3E4D265C5D5500B649F8 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
+		54F5C34C279A05AA006ADEC2 /* TitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRow.swift; sourceTree = "<group>"; };
+		54F5C34E279A05CE006ADEC2 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,20 +191,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		54212C29268FB986009EB4AD /* Message */ = {
-			isa = PBXGroup;
-			children = (
-				54212C2A268FB9C6009EB4AD /* MessageView.swift */,
-				54212C30268FBC5E009EB4AD /* MessageCell.swift */,
-			);
-			path = Message;
-			sourceTree = "<group>";
-		};
 		5434E22626E7E41A005D12C8 /* DirectMessage */ = {
 			isa = PBXGroup;
 			children = (
-				5434E22726E7E46A005D12C8 /* DirectMessageView.swift */,
-				5434E22B26E7E901005D12C8 /* DirectConversationView.swift */,
+				5434E22726E7E46A005D12C8 /* DMListView.swift */,
+				5434E22B26E7E901005D12C8 /* ChatRoomView.swift */,
+				54F5C34C279A05AA006ADEC2 /* TitleRow.swift */,
+				54F5C34E279A05CE006ADEC2 /* MessageBubble.swift */,
 				5434E23326E7F2BB005D12C8 /* DirectConversationCell.swift */,
 			);
 			path = DirectMessage;
@@ -304,7 +293,7 @@
 				54CEF222265ED4CC002365B8 /* PostViewModel.swift */,
 				5498F498266003FC00FE51AB /* PostGridViewModel.swift */,
 				548F7FF326618E3F00B4F9F7 /* CommentViewModel.swift */,
-				5434E22D26E7EA64005D12C8 /* DirectMessageViewModel.swift */,
+				5434E22D26E7EA64005D12C8 /* DMViewModel.swift */,
 				54212C2C268FBA30009EB4AD /* MessageViewModel.swift */,
 				54BAD84026623CF10088A8E1 /* NotificationsViewModel.swift */,
 				54BAD842266252840088A8E1 /* NotificationCellViewModel.swift */,
@@ -320,7 +309,6 @@
 				54DE3E1C265BE47000B649F8 /* Authentication */,
 				54DE3E1B265BE46A00B649F8 /* Notifications */,
 				54DE3E1A265BE46500B649F8 /* Search */,
-				54212C29268FB986009EB4AD /* Message */,
 				54DE3E19265BE46000B649F8 /* Comments */,
 				54DE3E18265BE45D00B649F8 /* Feed */,
 				54DE3E17265BE45900B649F8 /* Profile */,
@@ -335,11 +323,10 @@
 			isa = PBXGroup;
 			children = (
 				542B63F0265DAB49002FA9AE /* User.swift */,
-				5434E22F26E7EACC005D12C8 /* DmMessage.swift */,
-				5434E23126E7ECB4005D12C8 /* DmConversation.swift */,
 				54CEF228265EFE9C002365B8 /* Post.swift */,
 				54BAD83E2662394B0088A8E1 /* Notification.swift */,
 				548F7FED26618E0000B4F9F7 /* Comment.swift */,
+				5434E23126E7ECB4005D12C8 /* ChatRoom.swift */,
 				54212C2E268FBAA2009EB4AD /* Message.swift */,
 			);
 			path = Model;
@@ -427,7 +414,6 @@
 			children = (
 				54DE3E33265C0A0C00B649F8 /* PostGridView.swift */,
 				54DE3E37265C0EB200B649F8 /* UserListView.swift */,
-				5434E22926E7E867005D12C8 /* DmUserListView.swift */,
 				54DE3E35265C0EA700B649F8 /* UserCell.swift */,
 				5498F4BC26605B8C00FE51AB /* LoaderView.swift */,
 				548F7FE726611CA600B4F9F7 /* LoaderView2.swift */,
@@ -554,16 +540,16 @@
 				54CEF223265ED4CC002365B8 /* PostViewModel.swift in Sources */,
 				548F7FF226618E2500B4F9F7 /* CommentCell.swift in Sources */,
 				54017C502666C967000D95A8 /* SignInWithAppleView.swift in Sources */,
-				5434E22C26E7E901005D12C8 /* DirectConversationView.swift in Sources */,
+				5434E22C26E7E901005D12C8 /* ChatRoomView.swift in Sources */,
 				54DE3E34265C0A0C00B649F8 /* PostGridView.swift in Sources */,
 				54DE3E48265C51E200B649F8 /* RegisterView.swift in Sources */,
 				54DE3E4C265C5D4900B649F8 /* CustomTextField.swift in Sources */,
 				548F7FE826611CA600B4F9F7 /* LoaderView2.swift in Sources */,
 				5436E2AA26E53F940071EDD9 /* LottieView.swift in Sources */,
-				5434E22A26E7E867005D12C8 /* DmUserListView.swift in Sources */,
-				5434E22826E7E46B005D12C8 /* DirectMessageView.swift in Sources */,
+				5434E22826E7E46B005D12C8 /* DMListView.swift in Sources */,
 				542B63E9265D68F5002FA9AE /* ImageUploader.swift in Sources */,
 				542B6402265DB253002FA9AE /* SearchViewModel.swift in Sources */,
+				54F5C34D279A05AA006ADEC2 /* TitleRow.swift in Sources */,
 				54DE3E04265BE31600B649F8 /* ContentView.swift in Sources */,
 				54DE3E02265BE31600B649F8 /* MonkeyHubApp.swift in Sources */,
 				542B63F1265DAB49002FA9AE /* User.swift in Sources */,
@@ -586,25 +572,22 @@
 				54DE3E32265C048E00B649F8 /* SearchBar.swift in Sources */,
 				54DE3E4E265C5D5500B649F8 /* CustomSecureField.swift in Sources */,
 				548F7FEE26618E0000B4F9F7 /* Comment.swift in Sources */,
-				5434E23226E7ECB4005D12C8 /* DmConversation.swift in Sources */,
+				5434E23226E7ECB4005D12C8 /* ChatRoom.swift in Sources */,
 				54BAD84526629F970088A8E1 /* LazyView.swift in Sources */,
 				54DE3E2A265BE5ED00B649F8 /* NotificationsView.swift in Sources */,
 				54CEF22B265F006F002365B8 /* FeedViewModel.swift in Sources */,
 				5498F4BB2660506100FE51AB /* FeedCellViewModel.swift in Sources */,
 				5498F4BD26605B8C00FE51AB /* LoaderView.swift in Sources */,
-				54212C2B268FB9C6009EB4AD /* MessageView.swift in Sources */,
 				54DE3E30265BEBDF00B649F8 /* FeedCell.swift in Sources */,
 				54DE3E42265C330700B649F8 /* ProfileActionButtonView.swift in Sources */,
 				542B63E3265D2CF7002FA9AE /* AuthViewModel.swift in Sources */,
 				54A9A7A32662BB9F0032DBC6 /* EditProfileViewModel.swift in Sources */,
 				54212C2F268FBAA2009EB4AD /* Message.swift in Sources */,
 				548F7FEA2661269000B4F9F7 /* Helper.swift in Sources */,
-				54212C31268FBC5E009EB4AD /* MessageCell.swift in Sources */,
 				54BAD843266252840088A8E1 /* NotificationCellViewModel.swift in Sources */,
 				54DE3E38265C0EB200B649F8 /* UserListView.swift in Sources */,
 				54BAD84126623CF10088A8E1 /* NotificationsViewModel.swift in Sources */,
-				5434E23026E7EACC005D12C8 /* DmMessage.swift in Sources */,
-				5434E22E26E7EA64005D12C8 /* DirectMessageViewModel.swift in Sources */,
+				5434E22E26E7EA64005D12C8 /* DMViewModel.swift in Sources */,
 				542B63EB265D7E83002FA9AE /* EmailVerificationView.swift in Sources */,
 				54CEF221265EABB9002365B8 /* UserService.swift in Sources */,
 				54DE3E3C265C1E7E00B649F8 /* NotificationCell.swift in Sources */,
@@ -612,6 +595,7 @@
 				548F7FF026618E1F00B4F9F7 /* CommentsView.swift in Sources */,
 				54A9A7A12662B88B0032DBC6 /* EditProfileView.swift in Sources */,
 				54DE3E3A265C185300B649F8 /* Extensions.swift in Sources */,
+				54F5C34F279A05CE006ADEC2 /* MessageBubble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,7 +731,7 @@
 				DEVELOPMENT_TEAM = 37TC2VKVJ6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MonkeyHub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,7 +757,7 @@
 				DEVELOPMENT_TEAM = 37TC2VKVJ6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MonkeyHub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

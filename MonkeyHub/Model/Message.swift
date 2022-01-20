@@ -8,15 +8,17 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-struct Message: Identifiable, Decodable {
+struct Message: Identifiable, Codable {
 
     @DocumentID var id: String?
     let username: String
-    let sendToUID: String
+    let senderUID: String
+    let receiverUID: String
     let profileImageURL: String
-    let messageText: String
+    let text: String
     let timestamp: Timestamp
     let uid: String
+    let received: Bool
 
     var timestampString: String? {
         let formatter = DateComponentsFormatter()
