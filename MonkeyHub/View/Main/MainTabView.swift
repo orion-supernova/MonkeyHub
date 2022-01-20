@@ -77,9 +77,9 @@ struct MainTabView: View {
     }
     var dmButton: some View {
         NavigationLink(
-            destination: DirectMessageView(dmViewModel:
-                                            DirectMessageViewModel(dmConversation:
-                                                                    DmConversation.init(id: "hm",
+            destination: DMListView(dmViewModel:
+                                            DMViewModel(chatRoom:
+                                                                    ChatRoom.init(id: "hm",
                                                                                         ownerUID: "hm",
                                                                                         ownerUsername: "hm",
                                                                                         ownerImageURL: "hm",

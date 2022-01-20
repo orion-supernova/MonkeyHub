@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct DirectConversationView: View {
+struct ChatRoomView: View {
 
     @State var messageText = ""
-    @ObservedObject var viewmodel: DirectMessageViewModel
+    @ObservedObject var viewmodel: DMViewModel
 
-    init(dmConversation: DmConversation) {
-        self.viewmodel = DirectMessageViewModel(dmConversation: dmConversation)
+    init(chatRoom: ChatRoom) {
+        self.viewmodel = DMViewModel(chatRoom: chatRoom)
 
     }
 
@@ -46,7 +46,7 @@ struct DirectConversationView: View {
 
 }
 
-// struct DirectConversationView_Previews: PreviewProvider {
+// struct ChatRoomView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        DirectConversationView()
 //    }

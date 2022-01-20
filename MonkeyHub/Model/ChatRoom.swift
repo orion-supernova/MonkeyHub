@@ -8,7 +8,7 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-struct DmConversation: Identifiable, Decodable {
+struct ChatRoom: Identifiable, Decodable {
 
     @DocumentID var id: String?
     let ownerUID: String

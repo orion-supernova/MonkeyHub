@@ -1,5 +1,5 @@
 //
-//  DirectMessageViewModel.swift
+//  DMViewModel.swift
 //  MonkeyHub
 //
 //  Created by Murat Can KOÇ on 7.09.2021.
@@ -8,26 +8,26 @@
 import SwiftUI
 import Firebase
 
-class DirectMessageViewModel: ObservableObject {
+class DMViewModel: ObservableObject {
 
-    private let dmConversation: DmConversation
+    private let chatRoom: ChatRoom
     @Published var dmMessages = [DmMessage]()
 
-    init(dmConversation: DmConversation) {
-        self.dmConversation = dmConversation
+    init(chatRoom: ChatRoom) {
+        self.chatRoom = chatRoom
         fetchDirectMessages()
     }
 
     func uploadDirectMessages(messageText: String) {
 
         guard let user = AuthViewModel.shared.currentUserObject else { return }
-        guard let dmConversationId = dmConversation.id else { return }
+        guard let dmConversationId = chatRoom.id else { return }
 
         let data = ["username": user.username,
                     "profileImageURL": user.profileImageURL,
                     "uid": user.id ?? "",
                     "timestamp": Timestamp(date: Date()),
-                    "dmCreatorUID": dmConversation.ownerUID,
+                    "dmCreatorUID": chatRoom.ownerUID,
                     "messageText": messageText] as [String: Any]
 
         COLLECTION_DIRECTMESSAGES.document(dmConversationId)
@@ -41,7 +41,7 @@ class DirectMessageViewModel: ObservableObject {
     }
 
     func fetchDirectMessages() {
-        guard let dmConversationId = dmConversation.id else { return }
+        guard let dmConversationId = chatRoom.id else { return }
 
         let query = COLLECTION_DIRECTMESSAGES
             .document(dmConversationId).collection("dmConversation-mesages").order(by: "timestamp",
