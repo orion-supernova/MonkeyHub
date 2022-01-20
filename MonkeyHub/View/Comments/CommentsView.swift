@@ -24,7 +24,6 @@ struct CommentsView: View {
                 LazyVStack(alignment: .leading, spacing: 24) {
                     ForEach(viewmodel.comments) { comment in
                         CommentCell(comment: comment)
-
                     }
                 }
             }

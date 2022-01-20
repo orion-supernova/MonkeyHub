@@ -13,6 +13,7 @@ struct DMListView: View {
     @ObservedObject var viewModel = SearchViewModel()
     @ObservedObject var dmViewModel: DMViewModel
     @Binding var searchTextBinding: String
+    @State private var navTitleEnabled = true
 
     var users: [User] {
         return searchTextBinding.isEmpty ? viewModel.users : viewModel.filteredUsers(query: searchTextBinding)
@@ -23,11 +24,12 @@ struct DMListView: View {
             LazyVStack {
                 ForEach(users) { user in
                     NavigationLink {
-                        Text("DM EKRANI")
+                        ChatRoomView(chatRoom: ChatRoom(id: "1234", ownersUID: "1234", timestamp: Timestamp(date: Date())))
                     } label: {
                         UserCell(user: user)
                             .padding(.leading)
                     }
+                    .navigationBarTitle("") // Bir sonraki sayfaya geçince backButtondaki texti kaldırmak için
                 }
             }
         }

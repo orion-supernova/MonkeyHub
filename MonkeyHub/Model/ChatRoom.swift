@@ -8,17 +8,9 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-struct ChatRoom: Identifiable, Decodable {
+struct ChatRoom: Identifiable, Codable {
 
     @DocumentID var id: String?
-    let ownerUID: String
-    let ownerUsername: String
-    let ownerImageURL: String
-    let caption: String
-    var likes: Int
-    let imageURL: String
+    let ownersUID: String
     let timestamp: Timestamp
-
-    var didLike: Bool? = false
-
 }
