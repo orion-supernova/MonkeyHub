@@ -29,7 +29,6 @@ class FeedCellViewModel: ObservableObject {
     }
 
     func like() {
-
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         guard let postID = post.id else { return }
 
@@ -39,19 +38,13 @@ class FeedCellViewModel: ObservableObject {
 
         COLLECTION_POSTS.document(postID).collection("post-likes").document(uid).setData([:]) { error in
             guard error == nil else { print("Failed to like post. \(error!.localizedDescription)"); return }
-
             COLLECTION_USERS.document(uid).collection("user-likes").document(postID).setData([:]) { _ in
-
                 COLLECTION_POSTS.document(postID).updateData(["likes": self.post.likes+1])
-
                 NotificationsViewModel.uploadNotification(toUID: self.post.ownerUID, type: .like, post: self.post)
-
                 self.post.didLike = true
                 self.post.likes += 1
             }
-
         }
-
     }
 
     func unlike() {
@@ -68,9 +61,7 @@ class FeedCellViewModel: ObservableObject {
 
         COLLECTION_POSTS.document(postID).collection("post-likes").document(uid).delete { _ in
             COLLECTION_USERS.document(uid).collection("user-likes").document(postID).delete { _ in
-
                 COLLECTION_POSTS.document(postID).updateData(["likes": self.post.likes-1])
-
                 self.post.didLike = false
                 self.post.likes -= 1
             }
@@ -79,12 +70,9 @@ class FeedCellViewModel: ObservableObject {
     }
 
     func checkIfUserLikedPost() {
-
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         guard let postID = post.id else { return }
-
         COLLECTION_USERS.document(uid).collection("user-likes").document(postID).getDocument { snapshot, _ in
-
             guard let didLike = snapshot?.exists else { return }
             self.post.didLike = didLike
 

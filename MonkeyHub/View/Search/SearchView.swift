@@ -17,13 +17,11 @@ struct SearchView: View {
     var body: some View {
         ScrollView {
 
-            // searchbar
-
+            // Searchbar
             SearchBar(text: $searchText, isEditing: $inSearchMode)
                 .padding()
 
-            // grid view/user list view
-
+            // Grid view/user list view
             ZStack(alignment: .leading) {
                 if inSearchMode {
                     UserListView(viewModel: viewModel, searchTextBinding: $searchText)

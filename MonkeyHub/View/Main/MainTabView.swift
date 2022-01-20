@@ -12,14 +12,13 @@ struct MainTabView: View {
 
     let user: User
     @Binding var selectedIndex: Int
-
     @State var searchText = ""
 
     var body: some View {
 
         NavigationView {
             TabView(selection: $selectedIndex) {
-                FeedView()
+                LazyView(FeedView())
                     .onTapGesture {
                         selectedIndex = 0
                     }
