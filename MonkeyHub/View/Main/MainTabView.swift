@@ -62,7 +62,6 @@ struct MainTabView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: logoutButton, trailing: selectedIndex == 4 ? AnyView(settingsButton) : AnyView(dmButton))
         }
-
     }
 
     var logoutButton: some View {
