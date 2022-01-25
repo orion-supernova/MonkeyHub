@@ -33,7 +33,7 @@ class PostGridViewModel: ObservableObject {
 
     func fetchUserProfilePosts(forUID uid: String) {
         COLLECTION_POSTS.order(by: "timestamp", descending: true)
-            .whereField("ownerUID", isEqualTo: uid).getDocuments { snapshot, error in
+            .whereField("ownerUID", isEqualTo: uid).addSnapshotListener { snapshot, error in
             guard error == nil else { print(error!.localizedDescription); return }
             guard let documents = snapshot?.documents else { return }
             self.posts = documents.compactMap({ try? $0.data(as: Post.self)  })

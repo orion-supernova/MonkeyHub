@@ -34,6 +34,7 @@
 		5436E2A826E53BD00071EDD9 /* uploadAnimationJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 5436E2A726E53BD00071EDD9 /* uploadAnimationJSON.json */; };
 		5436E2AA26E53F940071EDD9 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5436E2A926E53F940071EDD9 /* LottieView.swift */; };
 		5436E2AC26E54A4F0071EDD9 /* uploadAnimation2JSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 5436E2AB26E54A4F0071EDD9 /* uploadAnimation2JSON.json */; };
+		5466B5F627A0965B00961287 /* Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5466B5F527A0965B00961287 /* Zoom.swift */; };
 		548F7FE826611CA600B4F9F7 /* LoaderView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F7FE726611CA600B4F9F7 /* LoaderView2.swift */; };
 		548F7FEA2661269000B4F9F7 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F7FE92661269000B4F9F7 /* Helper.swift */; };
 		548F7FEC266141DC00B4F9F7 /* ActivityIndicatorWithUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F7FEB266141DC00B4F9F7 /* ActivityIndicatorWithUIKit.swift */; };
@@ -107,6 +108,7 @@
 		5436E2A726E53BD00071EDD9 /* uploadAnimationJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = uploadAnimationJSON.json; sourceTree = "<group>"; };
 		5436E2A926E53F940071EDD9 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		5436E2AB26E54A4F0071EDD9 /* uploadAnimation2JSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = uploadAnimation2JSON.json; sourceTree = "<group>"; };
+		5466B5F527A0965B00961287 /* Zoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zoom.swift; sourceTree = "<group>"; };
 		548F7FE726611CA600B4F9F7 /* LoaderView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView2.swift; sourceTree = "<group>"; };
 		548F7FE92661269000B4F9F7 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		548F7FEB266141DC00B4F9F7 /* ActivityIndicatorWithUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWithUIKit.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				54DE3E39265C185300B649F8 /* Extensions.swift */,
+				5466B5F527A0965B00961287 /* Zoom.swift */,
 				54DE3E43265C473F00B649F8 /* ImagePicker.swift */,
 				548F7FEB266141DC00B4F9F7 /* ActivityIndicatorWithUIKit.swift */,
 				54DE3E4B265C5D4900B649F8 /* CustomTextField.swift */,
@@ -564,6 +567,7 @@
 				54DE3E44265C473F00B649F8 /* ImagePicker.swift in Sources */,
 				54DE3E3E265C23D400B649F8 /* ProfileHeaderView.swift in Sources */,
 				5434E23426E7F2BB005D12C8 /* DirectConversationCell.swift in Sources */,
+				5466B5F627A0965B00961287 /* Zoom.swift in Sources */,
 				54CEF229265EFE9C002365B8 /* Post.swift in Sources */,
 				54DE3E2C265BE5FF00B649F8 /* ProfileView.swift in Sources */,
 				54DE3E40265C30D800B649F8 /* UserStatView.swift in Sources */,

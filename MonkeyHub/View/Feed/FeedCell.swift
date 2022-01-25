@@ -13,7 +13,6 @@ struct FeedCell: View {
     @ObservedObject var viewmodel: FeedCellViewModel
     @ObservedObject var userlistviewmodel = SearchViewModel()
 
-    @State var scale: CGFloat = 1.0
     @State var likeAnimationHeart = false
 
     var users: [User] {
@@ -30,52 +29,49 @@ struct FeedCell: View {
         VStack(alignment: .leading) {
             // user info
 
-                HStack {
-                    KFImage(URL(string: viewmodel.post.ownerImageURL))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 36, height: 36)
-                        .clipped()
-                        .cornerRadius(18)
+            HStack {
+                KFImage(URL(string: viewmodel.post.ownerImageURL))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 36, height: 36)
+                    .clipped()
+                    .cornerRadius(18)
 
-                    NavigationLink(destination: ProfileView(user: User(username: "Hm",
-                                                                       email: "Hehe",
-                                                                       profileImageURL: "Lol",
-                                                                       fullname: "Yapcaz bi şeyler ama üşengeçlik işte"))) {
-                        Text(viewmodel.post.ownerUsername)
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-
-                    Spacer()
-
-                    // delete button
-                    if viewmodel.post.ownerUID == AuthViewModel.shared.userSession?.uid {
-                        Button(action: {
-                            PostViewModel().removePost(documentID: viewmodel.post.id!,
-                                                       imageURL: viewmodel.post.imageURL ) { error in
-                                guard error == nil else { print("Delete post button error. \(error!.localizedDescription)"); return }
-                                print("post deletion successfull!")
-
-                            }
-
-                        }, label: {
-                            Image(systemName: "minus.circle")
-                                .foregroundColor(.pink)
-                        })
-                        .padding(.trailing, 10)
-                    }
-
+                NavigationLink(destination: ProfileView(user: User(username: "Hm",
+                                                                   email: "Hehe",
+                                                                   profileImageURL: "Lol",
+                                                                   fullname: "Yapcaz bi şeyler ama üşengeçlik işte"))) {
+                    Text(viewmodel.post.ownerUsername)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.white)
                 }
 
+                Spacer()
+
+                // delete button
+                if viewmodel.post.ownerUID == AuthViewModel.shared.userSession?.uid {
+                    Button(action: {
+                        PostViewModel().removePost(documentID: viewmodel.post.id!,
+                                                   imageURL: viewmodel.post.imageURL ) { error in
+                            guard error == nil else { print("Delete post button error. \(error!.localizedDescription)"); return }
+                            print("post deletion successfull!")
+
+                        }
+
+                    }, label: {
+                        Image(systemName: "minus.circle")
+                            .foregroundColor(.pink)
+                    })
+                        .padding(.trailing, 10)
+                }
+            }
             .padding([.leading, .bottom], 8)
 
             // post image
-            ZStack {
+            HStack {
                 KFImage(URL(string: viewmodel.post.imageURL))
                     .resizable()
                     .scaledToFit()
-                    .scaleEffect(scale)
                     .frame(maxHeight: 440)
                     .clipped()
                     .gesture(
@@ -90,12 +86,7 @@ struct FeedCell: View {
                                 }
                             })
                     )
-                    .gesture(MagnificationGesture()
-                                .onChanged({ value in
-                                    self.scale = value.magnitude
-                                })
-                                .onEnded({_ in self.scale = 1.0 })
-                )
+                    .addPinchZoom()
 
                 if likeAnimationHeart {
                     Image(systemName: "heart.fill")
@@ -105,8 +96,8 @@ struct FeedCell: View {
                         .clipped()
                         .foregroundColor(.pink)
                 }
-
             }
+            .zIndex(1)
 
             // action buttons
 
@@ -166,7 +157,7 @@ struct FeedCell: View {
             HStack {
                 Text(viewmodel.post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold)) +
-                    Text(" \(viewmodel.post.caption)")
+                Text(" \(viewmodel.post.caption)")
                     .font(.system(size: 15))
             }
             .padding(.horizontal, 8)
