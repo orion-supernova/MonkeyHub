@@ -16,7 +16,6 @@ struct SearchView: View {
 
     var body: some View {
         ScrollView {
-
             // Searchbar
             SearchBar(text: $searchText, isEditing: $inSearchMode)
                 .padding()

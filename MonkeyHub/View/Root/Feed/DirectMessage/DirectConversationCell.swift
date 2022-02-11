@@ -5,10 +5,10 @@
 //  Created by Murat Can KOÇ on 7.09.2021.
 //
 
-//import SwiftUI
-//import Kingfisher
+// import SwiftUI
+// import Kingfisher
 //
-//struct MessageCell: View {
+// struct MessageCell: View {
 //
 //    let message: Message
 //
@@ -34,4 +34,4 @@
 //        }
 //        .padding(.horizontal)
 //    }
-//}
+// }

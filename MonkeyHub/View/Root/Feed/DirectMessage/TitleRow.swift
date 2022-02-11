@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct TitleRow: View {
-    var monkeyURL = URL(string: "https://images.unsplash.com/photo-1531989636497-7691416050aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80")
-    var monkeyURL2 = URL(string: "https://images.unsplash.com/photo-1581828060707-37894f1ed9b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80")
+    var monkeyURL = URL(string: "https://images.unsplash.com/photo-1581828060707-37894f1ed9b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80")
     var name = "Hebele Hübele"
 
     var body: some View {
         HStack(spacing: 20) {
-            AsyncImage(url: monkeyURL2) { image in
-                image
+            AsyncImage(url: monkeyURL) { _ in
+                Image("barbara")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 50, height: 50)
@@ -46,5 +45,6 @@ struct TitleRow: View {
 struct TitleRow_Previews: PreviewProvider {
     static var previews: some View {
         TitleRow()
+
     }
 }

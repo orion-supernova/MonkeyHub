@@ -33,11 +33,12 @@ struct DMListView: View {
                 }
             }
         }
+        .padding()
     }
 }
 
-// struct DMListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DirectMessageView()
-//    }
-// }
+ struct DMListView_Previews: PreviewProvider {
+    static var previews: some View {
+        DMListView(dmViewModel: DMViewModel(chatRoom: ChatRoom(id: "", ownersUID: "", timestamp: Timestamp(date: Date()))), searchTextBinding: .constant(""))
+    }
+ }

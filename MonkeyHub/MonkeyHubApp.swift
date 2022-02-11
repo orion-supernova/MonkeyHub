@@ -22,6 +22,14 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNot
         }
         application.registerForRemoteNotifications()
 
+        // MARK: - UINavigationBar default translucent issue after iOS 15 and XCode 13
+        if #available(iOS 15.0, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithDefaultBackground()
+            UINavigationBar.appearance().standardAppearance   = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance    = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        }
         return true
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -35,20 +43,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNot
             guard let token = token else { return }
             print("DEBUG: APNS Token: " + token)
             Helper.app.APNS_Token = token
-        }
-    }
-
-    // MARK: - UINavigationBar translucent issue after iOS 15 and XCode 13
-    func configNavBar() {
-        if #available(iOS 13.0, *) {
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithDefaultBackground()
-            tabBarAppearance.backgroundColor = UIColor.secondarySystemBackground
-            UITabBar.appearance().standardAppearance = tabBarAppearance
-
-            if #available(iOS 15.0, *) {
-                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-            }
         }
     }
 }

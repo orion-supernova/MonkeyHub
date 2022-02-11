@@ -92,7 +92,6 @@ struct MainTabView: View {
     }
 
     var tabTitle: String {
-
         switch selectedIndex {
         case 0:
             return "Feed"
@@ -107,9 +106,7 @@ struct MainTabView: View {
         default:
             return ""
         }
-
     }
-
 }
 
 // struct MainTabView_Previews: PreviewProvider {

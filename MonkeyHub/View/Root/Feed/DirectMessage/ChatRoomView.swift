@@ -16,7 +16,6 @@ struct ChatRoomView: View {
     init(chatRoom: ChatRoom) {
         self.viewmodel = DMViewModel(chatRoom: chatRoom)
     }
-    var barbaraURL = URL(string: "https://instagram.fsaw1-15.fna.fbcdn.net/v/t51.2885-15/e35/141688253_771536940381147_408860329412683372_n.jpg?_nc_ht=instagram.fsaw1-15.fna.fbcdn.net&_nc_cat=103&_nc_ohc=aNmxI8xsOdkAX-vL1Aq&edm=ALQROFkBAAAA&ccb=7-4&ig_cache_key=MjQ5NDYyNDYzMDAwMTgxNzMyMw%3D%3D.2-ccb7-4&oh=00_AT87YTEQ3cJnCUs4maVSk3ZavSEXsm7eEz-R_yGcZLUxGA&oe=61F07501&_nc_sid=30a2ef")
     var dummnyMessageArray = ["Selam", "Ben Barbara", "Manken Olan", ":D?"]
 
     var body: some View {
@@ -36,15 +35,11 @@ struct ChatRoomView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack {
-                        AsyncImage(url: barbaraURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 30, height: 30)
-                                .clipShape(Circle())
-                        } placeholder: {
-                            ProgressView()
-                        }
+                        Image("barbara")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30, height: 30)
+                            .clipShape(Circle())
 
                         Text("Barbara Palvin ❤️")
                     }
@@ -65,8 +60,8 @@ struct ChatRoomView: View {
 
 }
 
-// struct ChatRoomView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DirectConversationView()
-//    }
-// }
+ struct ChatRoomView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChatRoomView(chatRoom: ChatRoom(id: "", ownersUID: "", timestamp: Timestamp(date: Date())))
+    }
+ }

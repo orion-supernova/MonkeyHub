@@ -12,12 +12,12 @@ struct PostGridView: View {
 
     private let items = [GridItem(), GridItem(), GridItem()]
     private let width = UIScreen.main.bounds.width / 3
-    let config: PostGridConfiguration
+//    let config: PostGridConfiguration
 
     @ObservedObject var viewmodel: PostGridViewModel
 
     init(config: PostGridConfiguration) {
-        self.config = config
+//        self.config = config
         self.viewmodel = PostGridViewModel(config: config)
     }
 

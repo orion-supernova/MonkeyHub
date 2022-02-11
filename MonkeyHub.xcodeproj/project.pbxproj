@@ -201,6 +201,8 @@
 				54F5C34C279A05AA006ADEC2 /* TitleRow.swift */,
 				54F5C34E279A05CE006ADEC2 /* MessageBubble.swift */,
 				5434E23326E7F2BB005D12C8 /* DirectConversationCell.swift */,
+				5434E22D26E7EA64005D12C8 /* DMViewModel.swift */,
+				54212C2C268FBA30009EB4AD /* MessageViewModel.swift */,
 			);
 			path = DirectMessage;
 			sourceTree = "<group>";
@@ -212,6 +214,116 @@
 				5436E2A726E53BD00071EDD9 /* uploadAnimationJSON.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5436EA9B27B70C6A0034AC04 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E25265BE5B900B649F8 /* FeedView.swift */,
+				54CEF22A265F006F002365B8 /* FeedViewModel.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		5436EA9C27B70C720034AC04 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E2F265BEBDF00B649F8 /* FeedCell.swift */,
+				5498F4BA2660506100FE51AB /* FeedCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5436EA9D27B70C860034AC04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E2B265BE5FF00B649F8 /* ProfileView.swift */,
+				54CEF21E265EA645002365B8 /* ProfileViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5436EA9E27B70C8B0034AC04 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E3D265C23D400B649F8 /* ProfileHeaderView.swift */,
+				54DE3E3F265C30D800B649F8 /* UserStatView.swift */,
+				54DE3E41265C330700B649F8 /* ProfileActionButtonView.swift */,
+				5436EAA627B70E840034AC04 /* EditProfile */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5436EA9F27B70D2A0034AC04 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				54017C4F2666C967000D95A8 /* SignInWithAppleView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5436EAA027B70D500034AC04 /* Login&Register */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E45265C51DC00B649F8 /* LoginView.swift */,
+				54DE3E47265C51E200B649F8 /* RegisterView.swift */,
+				542B63E2265D2CF7002FA9AE /* AuthViewModel.swift */,
+			);
+			path = "Login&Register";
+			sourceTree = "<group>";
+		};
+		5436EAA127B70DCE0034AC04 /* PostGridView */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E33265C0A0C00B649F8 /* PostGridView.swift */,
+				5498F498266003FC00FE51AB /* PostGridViewModel.swift */,
+			);
+			path = PostGridView;
+			sourceTree = "<group>";
+		};
+		5436EAA227B70DE10034AC04 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E37265C0EB200B649F8 /* UserListView.swift */,
+				54DE3E35265C0EA700B649F8 /* UserCell.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		5436EAA327B70DED0034AC04 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				5498F4BC26605B8C00FE51AB /* LoaderView.swift */,
+				548F7FE726611CA600B4F9F7 /* LoaderView2.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		5436EAA427B70E560034AC04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E29265BE5ED00B649F8 /* NotificationsView.swift */,
+				54BAD84026623CF10088A8E1 /* NotificationsViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5436EAA527B70E5D0034AC04 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				54DE3E3B265C1E7E00B649F8 /* NotificationCell.swift */,
+				54BAD842266252840088A8E1 /* NotificationCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5436EAA627B70E840034AC04 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				54A9A7A02662B88B0032DBC6 /* EditProfileView.swift */,
+				54A9A7A22662BB9F0032DBC6 /* EditProfileViewModel.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		54DE3DF5265BE31600B649F8 = {
@@ -237,7 +349,6 @@
 				5498F495265FB2D000FE51AB /* MonkeyHub.entitlements */,
 				54DE3E14265BE39400B649F8 /* Model */,
 				54DE3E13265BE39400B649F8 /* View */,
-				54DE3E12265BE39200B649F8 /* ViewModel */,
 				54DE3E11265BE38F00B649F8 /* API */,
 				5436E2A626E53BAB0071EDD9 /* Resources */,
 				54DE3E10265BE37F00B649F8 /* Utils */,
@@ -285,39 +396,11 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		54DE3E12265BE39200B649F8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				54CEF21E265EA645002365B8 /* ProfileViewModel.swift */,
-				542B63E2265D2CF7002FA9AE /* AuthViewModel.swift */,
-				54CEF22A265F006F002365B8 /* FeedViewModel.swift */,
-				5498F4BA2660506100FE51AB /* FeedCellViewModel.swift */,
-				542B6401265DB253002FA9AE /* SearchViewModel.swift */,
-				54CEF222265ED4CC002365B8 /* PostViewModel.swift */,
-				5498F498266003FC00FE51AB /* PostGridViewModel.swift */,
-				548F7FF326618E3F00B4F9F7 /* CommentViewModel.swift */,
-				5434E22D26E7EA64005D12C8 /* DMViewModel.swift */,
-				54212C2C268FBA30009EB4AD /* MessageViewModel.swift */,
-				54BAD84026623CF10088A8E1 /* NotificationsViewModel.swift */,
-				54BAD842266252840088A8E1 /* NotificationCellViewModel.swift */,
-				54A9A7A22662BB9F0032DBC6 /* EditProfileViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		54DE3E13265BE39400B649F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				54DE3E1D265BE48200B649F8 /* Items */,
-				54DE3E1C265BE47000B649F8 /* Authentication */,
-				54DE3E1B265BE46A00B649F8 /* Notifications */,
-				54DE3E1A265BE46500B649F8 /* Search */,
-				54DE3E19265BE46000B649F8 /* Comments */,
-				54DE3E18265BE45D00B649F8 /* Feed */,
-				54DE3E17265BE45900B649F8 /* Profile */,
-				5434E22626E7E41A005D12C8 /* DirectMessage */,
-				54DE3E16265BE45100B649F8 /* UploadPost */,
-				54DE3E15265BE43300B649F8 /* Main */,
+				54DE3E15265BE43300B649F8 /* Root */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,19 +418,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		54DE3E15265BE43300B649F8 /* Main */ = {
+		54DE3E15265BE43300B649F8 /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				54DE3E03265BE31600B649F8 /* ContentView.swift */,
 				54DE3E23265BE57F00B649F8 /* MainTabView.swift */,
+				54DE3E1C265BE47000B649F8 /* Authentication */,
+				54DE3E18265BE45D00B649F8 /* Feed */,
+				54DE3E1A265BE46500B649F8 /* Search */,
+				54DE3E16265BE45100B649F8 /* UploadPost */,
+				54DE3E1B265BE46A00B649F8 /* Notifications */,
+				54DE3E17265BE45900B649F8 /* Profile */,
 			);
-			path = Main;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		54DE3E16265BE45100B649F8 /* UploadPost */ = {
 			isa = PBXGroup;
 			children = (
 				54DE3E2D265BE60C00B649F8 /* UploadPostView.swift */,
+				54CEF222265ED4CC002365B8 /* PostViewModel.swift */,
 			);
 			path = UploadPost;
 			sourceTree = "<group>";
@@ -355,11 +445,8 @@
 		54DE3E17265BE45900B649F8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				54DE3E2B265BE5FF00B649F8 /* ProfileView.swift */,
-				54DE3E3D265C23D400B649F8 /* ProfileHeaderView.swift */,
-				54DE3E3F265C30D800B649F8 /* UserStatView.swift */,
-				54DE3E41265C330700B649F8 /* ProfileActionButtonView.swift */,
-				54A9A7A02662B88B0032DBC6 /* EditProfileView.swift */,
+				5436EA9D27B70C860034AC04 /* View */,
+				5436EA9E27B70C8B0034AC04 /* Components */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -367,8 +454,10 @@
 		54DE3E18265BE45D00B649F8 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				54DE3E25265BE5B900B649F8 /* FeedView.swift */,
-				54DE3E2F265BEBDF00B649F8 /* FeedCell.swift */,
+				5436EA9B27B70C6A0034AC04 /* MainView */,
+				5436EA9C27B70C720034AC04 /* Cell */,
+				5434E22626E7E41A005D12C8 /* DirectMessage */,
+				54DE3E19265BE46000B649F8 /* Comments */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -378,6 +467,7 @@
 			children = (
 				548F7FEF26618E1F00B4F9F7 /* CommentsView.swift */,
 				548F7FF126618E2500B4F9F7 /* CommentCell.swift */,
+				548F7FF326618E3F00B4F9F7 /* CommentViewModel.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -387,6 +477,7 @@
 			children = (
 				54DE3E27265BE5E600B649F8 /* SearchView.swift */,
 				54DE3E31265C048E00B649F8 /* SearchBar.swift */,
+				542B6401265DB253002FA9AE /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -394,8 +485,8 @@
 		54DE3E1B265BE46A00B649F8 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				54DE3E29265BE5ED00B649F8 /* NotificationsView.swift */,
-				54DE3E3B265C1E7E00B649F8 /* NotificationCell.swift */,
+				5436EAA427B70E560034AC04 /* View */,
+				5436EAA527B70E5D0034AC04 /* Cell */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -403,11 +494,10 @@
 		54DE3E1C265BE47000B649F8 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				54DE3E45265C51DC00B649F8 /* LoginView.swift */,
-				54DE3E47265C51E200B649F8 /* RegisterView.swift */,
+				5436EAA027B70D500034AC04 /* Login&Register */,
 				54DE3E49265C51EC00B649F8 /* ResetPasswordView.swift */,
 				542B63EA265D7E83002FA9AE /* EmailVerificationView.swift */,
-				54017C4F2666C967000D95A8 /* SignInWithAppleView.swift */,
+				5436EA9F27B70D2A0034AC04 /* Components */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -415,11 +505,9 @@
 		54DE3E1D265BE48200B649F8 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				54DE3E33265C0A0C00B649F8 /* PostGridView.swift */,
-				54DE3E37265C0EB200B649F8 /* UserListView.swift */,
-				54DE3E35265C0EA700B649F8 /* UserCell.swift */,
-				5498F4BC26605B8C00FE51AB /* LoaderView.swift */,
-				548F7FE726611CA600B4F9F7 /* LoaderView2.swift */,
+				5436EAA127B70DCE0034AC04 /* PostGridView */,
+				5436EAA227B70DE10034AC04 /* UserList */,
+				5436EAA327B70DED0034AC04 /* Loader */,
 				548F7FF52661932C00B4F9F7 /* KeyboardInputView.swift */,
 			);
 			path = Items;
@@ -729,7 +817,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MonkeyHub/MonkeyHub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"MonkeyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 37TC2VKVJ6;
@@ -755,7 +843,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MonkeyHub/MonkeyHub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"MonkeyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 37TC2VKVJ6;

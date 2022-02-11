@@ -16,10 +16,8 @@ struct LoaderView2: View {
                 .opacity(0.25)
 
             ProgressView()
-
                 .progressViewStyle(CircularProgressViewStyle(tint: .pink))
                 .scaleEffect(3)
-
         }
         .zIndex(5)
 
