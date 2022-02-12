@@ -13,12 +13,9 @@ enum PostGridConfiguration {
 }
 
 class PostGridViewModel: ObservableObject {
-
     @Published var posts = [Post]()
-//    let config: PostGridConfiguration
 
     init(config: PostGridConfiguration) {
-//        self.config = config
         fetchPosts(forConfig: config)
     }
 

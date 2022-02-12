@@ -23,11 +23,8 @@ struct UploadPostView: View {
     var body: some View {
 
         ZStack {
-
             if self.loadingIndicator {
-
                LoaderView2()
-
             }
 
             VStack {

@@ -27,8 +27,8 @@ struct FeedCell: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            // user info
 
+            // MARK: - User Info
             HStack {
                 KFImage(URL(string: viewmodel.post.ownerImageURL))
                     .resizable()
@@ -48,7 +48,7 @@ struct FeedCell: View {
 
                 Spacer()
 
-                // delete button
+                // MARK: - Delete Button
                 if viewmodel.post.ownerUID == AuthViewModel.shared.userSession?.uid {
                     Button(action: {
                         PostViewModel().removePost(documentID: viewmodel.post.id!,
@@ -67,7 +67,7 @@ struct FeedCell: View {
             }
             .padding([.leading, .bottom], 8)
 
-            // post image
+            // MARK: - Post Image
             HStack {
                 KFImage(URL(string: viewmodel.post.imageURL))
                     .resizable()
@@ -99,8 +99,7 @@ struct FeedCell: View {
             }
             .zIndex(1)
 
-            // action buttons
-
+            // MARK: - Action Buttons
             HStack(spacing: 16) {
 
                 // like button
@@ -124,8 +123,8 @@ struct FeedCell: View {
                         .font(.system(size: 20))
                         .padding(4)
                 })
-                // comment button
 
+                // MARK: - Comment Button
                 NavigationLink(
                     destination: CommentsView(post: viewmodel.post),
                     label: {
@@ -137,7 +136,7 @@ struct FeedCell: View {
                             .padding(4)
                     })
 
-                // send button
+                // MARK: - Send Button
                 Button(action: {}, label: {
                     Image(systemName: "paperplane")
                         .resizable()
@@ -149,7 +148,7 @@ struct FeedCell: View {
             }
             .foregroundColor(.pink)
 
-            // caption
+            // MARK: - Caption
             Text("\(viewmodel.post.likes) likes")
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)

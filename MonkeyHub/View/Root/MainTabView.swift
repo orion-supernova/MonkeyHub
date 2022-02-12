@@ -79,7 +79,6 @@ struct MainTabView: View {
             destination: DMListView(dmViewModel: DMViewModel(chatRoom: ChatRoom(id: "1234", ownersUID: "1234", timestamp: Timestamp(date: Date()))), searchTextBinding: $searchText),
             label: {
                 Image(systemName: "paperplane")
-                    .foregroundColor(.pink)
             })
     }
     var settingsButton: some View {
@@ -109,8 +108,8 @@ struct MainTabView: View {
     }
 }
 
-// struct MainTabView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainTabView(user: User)
-//    }
-// }
+ struct MainTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainTabView(user: User(username: "", email: "", profileImageURL: "", fullname: ""), selectedIndex: .constant(0), searchText: "")
+    }
+ }

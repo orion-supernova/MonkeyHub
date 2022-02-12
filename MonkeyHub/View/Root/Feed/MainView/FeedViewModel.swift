@@ -8,7 +8,6 @@
 import SwiftUI
 
 class FeedViewModel: ObservableObject {
-
     @Published var posts = [Post]()
 
     init() {
@@ -20,7 +19,7 @@ class FeedViewModel: ObservableObject {
             guard error == nil else { print(error!.localizedDescription); return }
             guard let documents = snapshot?.documents else { return }
             self.posts = documents.compactMap({ try? $0.data(as: Post.self)  })
-            print("fetch post sucessfull!")
+            print("FeedViewModel fetch post sucessfull!")
         }
     }
 }
