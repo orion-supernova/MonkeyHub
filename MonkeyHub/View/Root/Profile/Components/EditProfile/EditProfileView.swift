@@ -13,16 +13,16 @@ struct EditProfileView: View {
     @ObservedObject var viewmodel: ProfileViewModel
     @EnvironmentObject var authViewModel: AuthViewModel
 
-    @State var bioText = ""
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     @State private var profileImageUIImage: UIImage?
     @State var imagePickerPresented = false
     @State var didTapDoneButton = false
 
-    @State private var willUpdateProfilePicture = false
     @State private var imageURL: String?
-    @State private var data = [String: Any]()
+    @State var bioText = ""
+    @State var username = ""
+    @State private var dataToUpdate = [String: Any]()
 
     @Environment(\.presentationMode) var mode
 
@@ -55,32 +55,35 @@ struct EditProfileView: View {
                             guard let user = AuthViewModel.shared.currentUserObject else { return }
                             guard let uid = user.id else { return }
                             if let image = profileImageUIImage {
-                                // MARK: - Update with Profile Picture
-                                willUpdateProfilePicture = true
+                                // MARK: - Update Profile Picture
                                 ImageUploader.uploadImage(image: image, type: .profile) { url in
                                     self.imageURL = url
-                                    data = ["bio": bioText, "profileImageURL": url]
+                                    dataToUpdate["profileImageURL"] = url
                                     viewmodel.user.profileImageURL = url
-                                    viewmodel.user.bio = bioText
-                                    // MARK: - Continue Flow
-                                    COLLECTION_USERS.document(uid).updateData(data) { error in
-                                        guard error == nil else { return }
-                                    }
-                                }
-                            } else {
-                                // MARK: - Update without Profile Picture
-                                willUpdateProfilePicture = false
-                                data = ["bio": bioText]
-                                viewmodel.user.bio = bioText
-                                // MARK: - Continue Flow
-                                COLLECTION_USERS.document(uid).updateData(data) { error in
-                                    guard error == nil else { return }
                                 }
                             }
-                            print("saved")
-                            mode.wrappedValue.dismiss()
-                            didTapDoneButton = false
-                            // End of update
+                            if bioText != "" {
+                                // MARK: - Update Bio
+                                dataToUpdate["bio"] = bioText
+                                viewmodel.user.bio = bioText
+                            }
+                            // MARK: - Update Username
+                            if username != "" {
+                                dataToUpdate["username"] = username
+                                viewmodel.user.username = username
+                            }
+                            // MARK: - Continue Flow
+                            COLLECTION_USERS.document(uid).updateData(dataToUpdate) { error in
+                                guard error == nil else { return }
+                                DispatchQueue.main.async {
+                                    print("saved")
+                                    mode.wrappedValue.dismiss()
+                                    didTapDoneButton = false
+                                    authViewModel.fetchUser()
+                                    // End of update
+                                }
+                            }
+
                         }), secondaryButton: .cancel(Text("Cancel"), action: {
                             didTapDoneButton = false
                             // Do nothing
@@ -116,10 +119,27 @@ struct EditProfileView: View {
                 })
             }
 
-            CustomTextArea(text: $bioText,
-                           placeholder: viewmodel.user.bio == nil ? "Add your bio..." : viewmodel.user.bio!)
-                .frame(width: UIScreen.main.bounds.width, height: 200, alignment: .center)
-                .padding()
+            VStack {
+                HStack {
+                    Text("Username")
+                    Spacer()
+                }
+                CustomTextArea(text: $username,
+                               placeholder: viewmodel.user.username)
+                    .frame(width: getRect().width, height: 30)
+                    .padding()
+            }
+
+            VStack {
+                HStack {
+                    Text("Bio")
+                    Spacer()
+                }
+                CustomTextArea(text: $bioText,
+                               placeholder: viewmodel.user.bio == nil ? "Add your bio..." : viewmodel.user.bio!)
+                    .frame(width: UIScreen.main.bounds.width, height: 200, alignment: .center)
+                    .padding()
+            }
 
             Spacer()
         }

@@ -8,7 +8,7 @@
 import FirebaseFirestoreSwift
 
 struct User: Identifiable, Decodable {
-    let username: String
+    var username: String
     let email: String
     var profileImageURL: String
     let fullname: String
