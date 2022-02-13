@@ -20,6 +20,8 @@ struct RegisterView: View {
     @State var imagePickerPresented = false
     @EnvironmentObject var viewModel: AuthViewModel
 
+    private var defaultImage = UIImage(named: "person")
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.pink, Color.blue]), startPoint: .top, endPoint: .bottom)
@@ -35,6 +37,7 @@ struct RegisterView: View {
 
                 Spacer()
 
+                // MARK: - Profile Image
                 if profileImage == nil {
                     Button(action: { imagePickerPresented.toggle() }, label: {
                         Image(systemName: "person.badge.plus")
@@ -65,8 +68,7 @@ struct RegisterView: View {
 
                 VStack(spacing: 15) {
 
-                    // email field
-
+                    // MARK: - Email Field
                     CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
@@ -74,16 +76,7 @@ struct RegisterView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
 
-                    // fullname
-
-                    CustomTextField(text: $fullname, placeholder: Text("Full Name"), imageName: "person")
-                        .padding()
-                        .background(Color(.init(white: 1, alpha: 0.15)))
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 32)
-
-                    // username
+                    // MARK: - Username Fİeld
                     CustomTextField(text: $username, placeholder: Text("Username"), imageName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
@@ -91,8 +84,7 @@ struct RegisterView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
 
-                    // password field
-
+                    // MARK: - Password Field
                     CustomSecureField(text: $password, placeholder: Text("Password "))
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
@@ -101,29 +93,25 @@ struct RegisterView: View {
                         .padding(.horizontal, 32)
                 }
 
-                // sign Up
+                // MARK: - Sign Up
                 Button(action: {
 
                     if email == "" {
                         Helper.app.alertMessage(title: "Missing Info", message: "Please provide an email")
-                    } else if fullname == "" {
-                        Helper.app.alertMessage(title: "Missing Info", message: "Please provide a full name")
                     } else if username == "" {
                         Helper.app.alertMessage(title: "Missing Info", message: "Please provide a username")
                     } else if password == "" {
                         Helper.app.alertMessage(title: "Missing Info", message: "Please provide a password")
                     } else if selectedImage == nil {
-                        Helper.app.alertMessage(title: "Missing Info", message: "Please provide a profile picture")
+                        selectedImage = defaultImage
                     } else {
-
                         viewModel.loadingIndicatorWithSwiftUI = true
 
                         viewModel.register(withEmail: email,
                                            password: password,
                                            image: selectedImage,
-                                           fullname: fullname,
+                                           fullname: username,
                                            username: username)
-
                     }
 
                 }, label: {
@@ -143,7 +131,7 @@ struct RegisterView: View {
                 // Already an account? sign in
 
                 HStack {
-                    Text("Already an account?")
+                    Text("Already have an account?")
                         .font(.system(size: 14))
 
                     Button(action: { mode.wrappedValue.dismiss() }, label: {

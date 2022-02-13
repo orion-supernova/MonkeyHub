@@ -38,10 +38,17 @@ struct ChatRoomView: View {
                         Image("barbara")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
+                            .frame(width: 50, height: 50)
                             .clipShape(Circle())
 
-                        Text("Barbara Palvin ❤️")
+                        VStack {
+                            Text("Barbara Palvin ❤️")
+                            HStack {
+                                Text("Online")
+                                    .font(.system(size: 12, weight: .regular))
+                                Spacer()
+                            }
+                        }
                     }
                 }
             }

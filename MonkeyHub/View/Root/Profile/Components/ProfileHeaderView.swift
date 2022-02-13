@@ -16,21 +16,26 @@ struct ProfileHeaderView: View {
         VStack(alignment: .leading) {
 
             HStack {
-                KFImage(URL(string: viewmodel.user.profileImageURL))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 80, height: 80)
-                    .clipShape(Circle())
-                    .padding(.leading)
+                NavigationLink {
+                    KFImage(URL(string: viewmodel.user.profileImageURL))
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: getRect().width)
+                } label: {
+                    KFImage(URL(string: viewmodel.user.profileImageURL))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 80, height: 80)
+                        .clipShape(Circle())
+                        .padding(.leading)
+                }
 
                 Spacer()
 
                 HStack(spacing: 20) {
-
                     UserStatView(value: viewmodel.user.stats?.posts ?? 0, title: "Posts")
                     UserStatView(value: viewmodel.user.stats?.followers ?? 0, title: "Followers")
                     UserStatView(value: viewmodel.user.stats?.following ?? 0, title: "Following")
-
                 }
 
                 Spacer()

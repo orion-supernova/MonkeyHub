@@ -32,6 +32,8 @@ struct ResetPasswordView: View {
                 }
 
                 VStack {
+                    Spacer()
+                        .frame(width: getRect().width, height: getRect().height*0.1)
                     Image("monkey")
                         .resizable()
                         .scaledToFit()
@@ -76,7 +78,7 @@ struct ResetPasswordView: View {
                     // Already an account? sign in
 
                     HStack {
-                        Text("Already an account?")
+                        Text("Remember your password?")
                             .font(.system(size: 14))
 
                         Button(action: { mode.wrappedValue.dismiss() }, label: {
@@ -89,7 +91,7 @@ struct ResetPasswordView: View {
 
                 }
             }
-
+            .navigationBarHidden(true)
         }
         .onReceive(viewModel.$didSendResetPasswordLink, perform: { _ in
             self.mode.wrappedValue.dismiss()

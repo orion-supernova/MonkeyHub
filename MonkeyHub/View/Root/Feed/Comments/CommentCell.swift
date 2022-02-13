@@ -14,7 +14,6 @@ struct CommentCell: View {
 
     var body: some View {
         HStack {
-
             KFImage(URL(string: comment.profileImageURL))
                 .resizable()
                 .scaledToFill()
@@ -30,7 +29,6 @@ struct CommentCell: View {
             Text(" \(comment.timestampString ?? "")")
                 .foregroundColor(.gray)
                 .font(.system(size: 12))
-
         }
         .padding(.horizontal)
     }

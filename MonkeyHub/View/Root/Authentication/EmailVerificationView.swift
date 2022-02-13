@@ -23,7 +23,7 @@ struct EmailVerificationView: View {
                 Image(systemName: "envelope.badge")
                     .font(.system(size: 50, weight: .bold))
                     .foregroundColor(.white)
-                Text("Maalesef sayfayı otomatik update edemiyorum henüz çıkıp girmen lazım :)")
+                Text("Unfortunately I can't automatically reload the page yet, you need to logout and login again :)")
                     .foregroundColor(.white)
                     .font(.system(Font.TextStyle.subheadline, design: Font.Design.monospaced))
                     .padding()
@@ -35,9 +35,7 @@ struct EmailVerificationView: View {
                         .foregroundColor(.white)
                         .background(Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)))
                         .clipShape(Capsule())
-
                 })
-
             }
         }
     }

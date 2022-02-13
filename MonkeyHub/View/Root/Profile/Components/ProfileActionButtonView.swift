@@ -16,18 +16,24 @@ struct ProfileActionButtonView: View {
         if viewmodel.user.isCurrentUser {
 
             // MARK: - Edit profile button
-            NavigationLink(
-                destination: EditProfileView(viewmodel: ProfileViewModel(user: viewmodel.user)),
-                label: {
-                    Text("Edit Profile")
-                        .font(.system(size: 14, weight: .semibold))
-                        .frame(width: getRect().width, height: 32)
-                        .foregroundColor(.pink)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 3)
-                                .stroke(Color(.systemPink), lineWidth: 1)
-                        )
-                })
+            Button {
+                withAnimation {
+                    showEditProfile.toggle()
+                }
+            } label: {
+                Text("Edit Profile")
+                    .font(.system(size: 14, weight: .semibold))
+                    .frame(width: getRect().width, height: 32)
+                    .foregroundColor(.pink)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 3)
+                            .stroke(Color(.systemPink), lineWidth: 1)
+                    )
+            }
+            .fullScreenCover(isPresented: $showEditProfile) {
+                EditProfileView(viewmodel: ProfileViewModel(user: viewmodel.user))
+            }
+
         } else {
 
             // MARK: - Follow and message button

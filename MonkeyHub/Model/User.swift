@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 struct User: Identifiable, Decodable {
     let username: String
     let email: String
-    let profileImageURL: String
+    var profileImageURL: String
     let fullname: String
     @DocumentID var id: String?
     var stats: UserStats?

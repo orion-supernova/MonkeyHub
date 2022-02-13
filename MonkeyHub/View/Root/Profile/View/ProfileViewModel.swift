@@ -61,12 +61,11 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
-    func fetchBio(completion: @escaping(String) -> Void) {
+    func fetchUserObject() {
         guard let uid = user.id else { return }
-        COLLECTION_USERS.document(uid).addSnapshotListener {snaphot, _ in
+        COLLECTION_USERS.document(uid).getDocument {snaphot, _ in
             guard let userDataFromFirestore = try? snaphot?.data(as: User.self) else { return }
-            completion(userDataFromFirestore.bio ?? "")
-
+            self.user = userDataFromFirestore
         }
     }
 

@@ -43,7 +43,7 @@ struct FeedCell: View {
                                                                    fullname: "Yapcaz bi şeyler ama üşengeçlik işte"))) {
                     Text(viewmodel.post.ownerUsername)
                         .font(.system(size: 14, weight: .semibold))
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("Black-White"))
                 }
 
                 Spacer()

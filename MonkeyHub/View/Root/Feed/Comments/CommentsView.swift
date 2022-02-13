@@ -18,8 +18,7 @@ struct CommentsView: View {
 
     var body: some View {
         VStack {
-
-            // comment cells
+            // MARK: - Comment Cells
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 24) {
                     ForEach(viewmodel.comments) { comment in
@@ -29,10 +28,11 @@ struct CommentsView: View {
             }
             .padding(.top)
 
-            // message inputview
+            // MARK: - Message Input View
             KeyboardInputView(text: $commentText, action: uploadComment)
 
         }
+        .navigationTitle("Comments")
         .onTapGesture {
             UIApplication.shared.endEditing()
         }

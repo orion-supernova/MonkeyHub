@@ -26,6 +26,8 @@ struct LoginView: View {
 
                 }
                 VStack {
+                    Spacer()
+                        .frame(width: getRect().width, height: getRect().height*0.1)
                     Image("monkey")
                         .resizable()
                         .scaledToFit()
@@ -38,8 +40,8 @@ struct LoginView: View {
                         .padding(.bottom, 10)
 
                     VStack(spacing: 15) {
-                        // email field
 
+                        // MARK: - Email Field
                         CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
                             .padding()
                             .background(Color(.init(white: 1, alpha: 0.15)))
@@ -47,8 +49,7 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .padding(.horizontal, 32)
 
-                        // password field
-
+                        // MARK: - Password Field
                         CustomSecureField(text: $password, placeholder: Text("Password "))
                             .padding()
                             .background(Color(.init(white: 1, alpha: 0.15)))
@@ -57,8 +58,7 @@ struct LoginView: View {
                             .padding(.horizontal, 32)
                     }
 
-                    // forgot password
-
+                    // MARK: - Forgot Password
                     HStack {
                         Spacer()
 
@@ -74,8 +74,7 @@ struct LoginView: View {
 
                     }
 
-                    // sign in
-
+                    // MARK: - Sign In
                     Button(action: {
                         viewModel.loadingIndicatorWithSwiftUI = true
 
@@ -91,12 +90,11 @@ struct LoginView: View {
                             .padding()
                     })
 
-                    SignInWithAppleView()
+//                    SignInWithAppleView()
 
                     Spacer()
 
-                    // dont have an account? sign up
-
+                    // MARK: - Don't have an account? Sign Up
                     HStack {
                         Text("Don't have an account?")
                             .font(.system(size: 14))
@@ -115,13 +113,11 @@ struct LoginView: View {
 
                 }
             }
-
+            .navigationBarHidden(true)
         }
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
-        .navigationBarHidden(true)
-
     }
 }
 
