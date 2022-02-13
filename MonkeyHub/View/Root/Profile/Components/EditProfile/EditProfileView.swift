@@ -51,31 +51,38 @@ struct EditProfileView: View {
                         Alert(title: Text("Save?"),
                               message: Text("Dou you want to save the current info?"),
                               primaryButton: .default(Text("Save"), action: {
+                            let group = DispatchGroup()
                             // MARK: - Update Profile Flow
                             guard let user = AuthViewModel.shared.currentUserObject else { return }
                             guard let uid = user.id else { return }
+                            // MARK: - Update Profile Picture
+                            group.enter()
                             if let image = profileImageUIImage {
-                                // MARK: - Update Profile Picture
                                 ImageUploader.uploadImage(image: image, type: .profile) { url in
                                     self.imageURL = url
                                     dataToUpdate["profileImageURL"] = url
                                     viewmodel.user.profileImageURL = url
+                                    group.leave()
                                 }
                             }
+                            // MARK: - Update Bio
+                            group.enter()
                             if bioText != "" {
-                                // MARK: - Update Bio
                                 dataToUpdate["bio"] = bioText
                                 viewmodel.user.bio = bioText
+                                group.leave()
                             }
                             // MARK: - Update Username
+                            group.enter()
                             if username != "" {
                                 dataToUpdate["username"] = username
                                 viewmodel.user.username = username
+                                group.leave()
                             }
                             // MARK: - Continue Flow
-                            COLLECTION_USERS.document(uid).updateData(dataToUpdate) { error in
-                                guard error == nil else { return }
-                                DispatchQueue.main.async {
+                            group.notify(queue: .main) {
+                                COLLECTION_USERS.document(uid).updateData(dataToUpdate) { error in
+                                    guard error == nil else { return }
                                     print("saved")
                                     mode.wrappedValue.dismiss()
                                     didTapDoneButton = false
@@ -83,7 +90,6 @@ struct EditProfileView: View {
                                     // End of update
                                 }
                             }
-
                         }), secondaryButton: .cancel(Text("Cancel"), action: {
                             didTapDoneButton = false
                             // Do nothing
