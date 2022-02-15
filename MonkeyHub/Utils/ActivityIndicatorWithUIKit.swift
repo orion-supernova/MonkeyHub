@@ -9,11 +9,9 @@ import SwiftUI
 
 struct ActivityIndicatorWithUIKit: UIViewRepresentable {
     // Code will go here
-    
+
     @Binding var shouldAnimate: Bool
-    
-    
-    
+
     func makeUIView(context: Context) -> UIActivityIndicatorView {
         // Create UIActivityIndicatorView
         let spinner = UIActivityIndicatorView()
@@ -24,13 +22,12 @@ struct ActivityIndicatorWithUIKit: UIViewRepresentable {
     func updateUIView(_ uiView: UIActivityIndicatorView,
                       context: Context) {
         // Start and stop UIActivityIndicatorView animation
-        
+
         if self.shouldAnimate {
             uiView.startAnimating()
         } else {
             uiView.stopAnimating()
         }
     }
-    
-    
+
 }

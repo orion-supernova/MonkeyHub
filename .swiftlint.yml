@@ -1,0 +1,4 @@
+identifier_name:
+    allowed_symbols: "_"
+disabled_rules:
+    line_length

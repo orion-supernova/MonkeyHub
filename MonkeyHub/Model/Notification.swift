@@ -8,10 +8,8 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-
 struct Notification: Identifiable, Decodable {
-    
-    
+
     @DocumentID var id: String?
     var postID: String?
     let username: String
@@ -19,20 +17,18 @@ struct Notification: Identifiable, Decodable {
     let timestamp: Timestamp
     let type: NotificationType
     let uid: String
-    
+
     var isfollowed: Bool? = false
     var post: Post?
     var user: User?
-    
-    
+
 }
 
 enum NotificationType: Int, Decodable {
     case like
     case comment
     case follow
-    
-    
+
     var notificationMessage: String {
         switch self {
         case .like:
