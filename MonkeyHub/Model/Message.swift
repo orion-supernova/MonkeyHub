@@ -5,7 +5,7 @@
 //  Created by Murat Can KOÇ on 3.07.2021.
 //
 
-import FirebaseFirestoreSwift
+import FirebaseFirestore
 import Firebase
 
 struct Message: Identifiable, Codable {

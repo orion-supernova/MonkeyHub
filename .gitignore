@@ -6,3 +6,5 @@ MonkeyHub.xcodeproj/project.xcworkspace/xcuserdata/muratcankoc.xcuserdatad/UserI
 MonkeyHub.xcodeproj/xcuserdata/muratcankoc.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
 
 *.xcbkptlist
+
+MonkeyHub/API/SensitiveData.swift

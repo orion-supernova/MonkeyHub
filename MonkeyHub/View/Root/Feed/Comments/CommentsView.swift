@@ -18,15 +18,21 @@ struct CommentsView: View {
 
     var body: some View {
         VStack {
-            // MARK: - Comment Cells
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 24) {
-                    ForEach(viewmodel.comments) { comment in
-                        CommentCell(comment: comment)
+            if viewmodel.comments.isEmpty {
+                Spacer()
+                Text("Be the first one to comment on this post!")
+                Spacer()
+            } else {
+                    // MARK: - Comment Cells
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 24) {
+                        ForEach(viewmodel.comments) { comment in
+                            CommentCell(comment: comment)
+                        }
                     }
                 }
+                .padding(.top)
             }
-            .padding(.top)
 
             // MARK: - Message Input View
             KeyboardInputView(text: $commentText, action: uploadComment)

@@ -5,7 +5,7 @@
 //  Created by Murat Can KOÇ on 29.05.2021.
 //
 
-import FirebaseFirestoreSwift
+import FirebaseFirestore
 import Firebase
 
 struct Notification: Identifiable, Decodable {

@@ -5,7 +5,7 @@
 //  Created by Murat Can KOÇ on 7.09.2021.
 //
 
-import FirebaseFirestoreSwift
+import FirebaseFirestore
 import Firebase
 
 struct ChatRoom: Identifiable, Codable {

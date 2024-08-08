@@ -18,6 +18,7 @@ struct FeedCell: View {
     var users: [User] {
         userlistviewmodel.users
     }
+    @State var destinationUser: User = .init(username: "", email: "", profileImageURL: "", fullname: "Something went wrong.")
 
     var didLike: Bool { return viewmodel.post.didLike ?? false }
 
@@ -37,10 +38,7 @@ struct FeedCell: View {
                     .clipped()
                     .cornerRadius(18)
 
-                NavigationLink(destination: ProfileView(user: User(username: "Hm",
-                                                                   email: "Hehe",
-                                                                   profileImageURL: "Lol",
-                                                                   fullname: "Yapcaz bi şeyler ama üşengeçlik işte"))) {
+                NavigationLink(destination: ProfileView(user: destinationUser)) {
                     Text(viewmodel.post.ownerUsername)
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(Color("Black-White"))
@@ -51,53 +49,62 @@ struct FeedCell: View {
                 // MARK: - Delete Button
                 if viewmodel.post.ownerUID == AuthViewModel.shared.userSession?.uid {
                     Button(action: {
-                        PostViewModel().removePost(documentID: viewmodel.post.id!,
-                                                   imageURL: viewmodel.post.imageURL ) { error in
-                            guard error == nil else { print("Delete post button error. \(error!.localizedDescription)"); return }
-                            print("post deletion successfull!")
+                        Helper.app.alertMessageWithCompletion(title: "Warning!", message: "Your post will be deleted. Proceed?") { success in
+                            if success {
+                                PostViewModel().removePost(documentID: viewmodel.post.id!,
+                                                           imageURL: viewmodel.post.imageURL ) { error in
+                                    guard error == nil else { print("Delete post button error. \(error!.localizedDescription)"); return }
+                                    print("post deletion successfull!")
 
+                                }
+                            }
                         }
 
                     }, label: {
                         Image(systemName: "minus.circle")
                             .foregroundColor(.pink)
                     })
-                        .padding(.trailing, 10)
+                    .padding(.trailing, 10)
                 }
             }
             .padding([.leading, .bottom], 8)
 
             // MARK: - Post Image
             HStack {
-                KFImage(URL(string: viewmodel.post.imageURL))
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxHeight: 440)
-                    .clipped()
-                    .gesture(
-                        TapGesture(count: 2)
-                            .onEnded({ _ in
-                                if didLike == false {
-                                    viewmodel.like()
-                                }
+                ZStack {
+                    KFImage(URL(string: viewmodel.post.imageURL))
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: 440)
+                        .clipped()
+                        .addPinchZoom()
+                        .onTapGesture(count: 2) {
+                            // If didn't like already, like
+                            if didLike == false {
+                                viewmodel.like()
                                 self.likeAnimationHeart = true
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                     self.likeAnimationHeart = false
                                 }
-                            })
-                    )
-                    .addPinchZoom()
+                            } else {
+                                // Just show the animation, dont post a like request
+                                self.likeAnimationHeart = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    self.likeAnimationHeart = false
+                                }
+                            }
+                        }
 
-                if likeAnimationHeart {
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 200)
-                        .clipped()
-                        .foregroundColor(.pink)
+                    if likeAnimationHeart {
+                        Image(systemName: "heart.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 100)
+                            .clipped()
+                            .foregroundColor(.pink)
+                    }
                 }
             }
-            .zIndex(1)
 
             // MARK: - Action Buttons
             HStack(spacing: 16) {
@@ -114,7 +121,6 @@ struct FeedCell: View {
                             self.likeAnimationHeart = false
                         }
                     }
-
                 }, label: {
                     Image(systemName: didLike ? "heart.fill" : "heart")
                         .resizable()
@@ -165,6 +171,25 @@ struct FeedCell: View {
                 .foregroundColor(.gray)
                 .padding([.leading], 8)
                 .padding(.top, 2)
+        }
+        .onAppear {
+            getUserObject(from: viewmodel.post.ownerUID) { user in
+                destinationUser = user!
+            }
+        }
+    }
+    func getUserObject(from id: String, completion: @escaping (User?) -> Void) {
+        COLLECTION_USERS.document(id).getDocument { snapshot, error in
+            if let error = error {
+                print("Error fetching user: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            guard let userDataFromFirestore = try? snapshot?.data(as: User.self) else {
+                completion(nil)
+                return
+            }
+            completion(userDataFromFirestore)
         }
     }
 }
