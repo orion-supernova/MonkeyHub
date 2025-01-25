@@ -7,11 +7,13 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 struct ContentView: View {
 
     @EnvironmentObject var viewModel: AuthViewModel
     @State var selectedIndex = 0
+    @State private var eulaPresent = false
 
     var body: some View {
 
@@ -34,7 +36,15 @@ struct ContentView: View {
                     } else if Auth.auth().currentUser?.isEmailVerified == true {
 
                         if let user = viewModel.currentUserObject {
+
                             MainTabView(user: user, selectedIndex: $selectedIndex)
+                                .onAppear {
+                                    let confirmed = AppGlobal.shared.eulaConfirmed ?? false
+                                    eulaPresent = !confirmed
+                                }
+                                .fullScreenCover(isPresented: $eulaPresent, content: {
+                                    EULAView()
+                                })
                         }
                     }
                 }

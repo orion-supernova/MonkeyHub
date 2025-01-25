@@ -30,13 +30,29 @@ class CommentViewModel: ObservableObject {
                     "postOwnerUID": post.ownerUID,
                     "commentText": commentText] as [String: Any]
 
-        COLLECTION_POSTS.document(postId).collection("post-comments").addDocument(data: data) { error in
+        let document = COLLECTION_POSTS.document(postId)
+        document.collection("post-comments").addDocument(data: data) { error in
             if error != nil {
                 Helper.app.alertMessage(title: "Error", message: error!.localizedDescription)
                 print("Failed to upload comment. \(error!.localizedDescription)")
             }
+            var ownerToken = ""
+            var postDict: [String: Any]?
 
-            NotificationsViewModel.uploadNotification(toUID: self.post.ownerUID, type: .comment, post: self.post)
+            document.getDocument { snapshot, error in
+                guard error == nil, let snapshot = snapshot else { return }
+                postDict = snapshot.data()
+
+                guard let post = postDict else {
+                    return
+                }
+                ownerToken = post["ownerFcmToken"] as? String ?? ""
+
+                // Sending push notification to the related user.
+                NotificationsViewModel.uploadNotification(toUID: self.post.ownerUID, type: .comment, post: self.post)
+                let sender = PushNotificationSender()
+                sender.sendPushNotification(to: ownerToken, title: "MonkeyHub", body: "\(user.username) commented one of your posts.")
+            }
         }
 
     }

@@ -11,6 +11,7 @@ struct ProfileActionButtonView: View {
     @ObservedObject var viewmodel: ProfileViewModel
     @State var showEditProfile = false
     var isFollowed: Bool { return viewmodel.user.isfollowed ?? false}
+    @Environment(\.openURL) var openURL
 
     var body: some View {
         if viewmodel.user.isCurrentUser {
@@ -50,7 +51,11 @@ struct ProfileActionButtonView: View {
                         )
                 })
 
-                Button(action: {}, label: {
+                Button(action: {
+                    if let url = URL(string: "https://apps.apple.com/us/app/monkeychat-a-monkeyhub-project/id1610516543") {
+                        openURL(url)
+                    }
+                }, label: {
                     Text("Message")
                         .font(.system(size: 14, weight: .semibold))
                         .frame(width: 172, height: 32)

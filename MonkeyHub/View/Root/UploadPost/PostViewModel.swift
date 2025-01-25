@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseStorage
 
 class PostViewModel: ObservableObject {
 
@@ -23,7 +24,8 @@ class PostViewModel: ObservableObject {
                         "imageURL": imageURL,
                         "ownerUID": user.id ?? "",
                         "ownerImageURL": user.profileImageURL,
-                        "ownerUsername": user.username] as [String: Any]
+                        "ownerUsername": user.username,
+                        "ownerFcmToken": AppGlobal.shared.fcmToken ?? ""] as [String: Any]
 
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
         }

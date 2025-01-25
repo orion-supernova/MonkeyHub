@@ -9,6 +9,8 @@ import SwiftUI
 import AuthenticationServices
 import Firebase
 import CryptoKit
+import FirebaseAuth
+
 
 struct SignInWithAppleView: View {
 

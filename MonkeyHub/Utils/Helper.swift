@@ -36,7 +36,6 @@ class Helper {
         viewController.present(alertVC, animated: true, completion: nil)
     }
 
-
      func alertMessageWithCompletion(title: String, message: String, completion: AlertCompletion) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (_: UIAlertAction) in
@@ -47,7 +46,6 @@ class Helper {
         alertVC.addAction(okAction)
         alertVC.addAction(cancelAction)
 
-         
         let viewController = UIApplication.shared.windows.first!.rootViewController!
         viewController.present(alertVC, animated: true, completion: nil)
     }

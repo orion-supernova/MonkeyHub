@@ -13,6 +13,7 @@ struct MainTabView: View {
     let user: User
     @Binding var selectedIndex: Int
     @State var searchText = ""
+    @Environment(\.openURL) var openURL
 
     var body: some View {
 
@@ -66,7 +67,11 @@ struct MainTabView: View {
 
     var logoutButton: some View {
         Button {
-            AuthViewModel.shared.signOut()
+            Helper.app.alertMessageWithCompletion(title: "Logout", message: "Do you want to logout?") { success in
+                if success {
+                    AuthViewModel.shared.signOut()
+                }
+            }
         } label: {
             Text("logout")
                 .font(.system(size: 15, weight: .regular))
@@ -75,11 +80,17 @@ struct MainTabView: View {
 
     }
     var dmButton: some View {
-        NavigationLink(
-            destination: DMListView(dmViewModel: DMViewModel(chatRoom: ChatRoom(id: "1234", ownersUID: "1234", timestamp: Timestamp(date: Date()))), searchTextBinding: $searchText),
-            label: {
-                Image(systemName: "paperplane")
-            })
+        Button {
+            if let url = URL(string: "https://apps.apple.com/us/app/monkeychat-a-monkeyhub-project/id1610516543") {
+                openURL(url)
+            }
+        } label: {
+            Image(systemName: "paperplane")
+        }
+//        NavigationLink(
+//            destination: DMListView(dmViewModel: DMViewModel(chatRoom: ChatRoom(id: "1234", ownersUID: "1234", timestamp: Timestamp(date: Date()))), searchTextBinding: $searchText),
+//            label: {
+//            })
     }
     var settingsButton: some View {
         Button {
